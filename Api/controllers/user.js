@@ -1,9 +1,10 @@
 const mongoose=require('mongoose');
 const bcrpt=require('bcrypt');
 const jwt=require('jsonwebtoken');
+const storage = require('node-sessionstorage');
 
+const HospitalData = require('../Models/create-hospital');
 const User = require("../Models/user");
-
 
 
 //*******To Signup into Data*************//
@@ -74,21 +75,63 @@ exports.User_signin=(req,res,next)=>{
     {
         email:user[0],
         userId:user[0]._id,
-        hospitalid:user[0].hid
+        hospitalid:user[0].hid,
+        name:user[0].name,
+        role:user[0].role
     },
     "secret",
     {
         expiresIn:"1h"
     });
+    if(user[0].role==="superadmin"){
+        storage.setItem('data',token);
+      return  res.json({
+        authsuccess: true,
+        description: 'Sending the Access Token',
+        accessToken: token,
+        redirect:'/superadmin/superadmin'
+    });
+      }
+    
+    else if(user[0].role==="admin"){
         
-    return res.status(200).json({
-        message:"Auth Successful",
-        token:token
-    });
+        //console.log(user[0].hid);
+       HospitalData.findOne({_id:user[0].hid.toString()}).then(response=>{
+        
+        if(response.status==='Active'){ 
+            storage.setItem('data',token);  
+             return res.json({
+                redirect:'/admin/Home'
+            })
+            }else{
+                res.json({redirect:'/login'})
+            }
+       }).catch(err=>{
+           res.json('ERERERER')
+       })
+   
+        
+        
     }
-    res.status(401).json({
-        message:"Auth Failed"
-    });
+    else if(user[0].role==="doctor"){
+        storage.setItem('data',token);
+        return res.status(200).json({
+            message:"Auth Successful You Are doctor",
+            token:token})
+    }
+    else if ( user[0].role==="patient"){
+        storage.setItem('data',token);
+        return res.status(200).json({
+            message:"Auth Successful You Are patient",
+            token:token})
+            
+        
+    }
+}
+    
+    // res.status(401).json({
+    //     message:"Auth Failed"
+    // });
         });
     }).catch(
         err=>{

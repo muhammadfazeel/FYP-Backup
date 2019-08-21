@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Form Validation</title>
+    <!-- Bootstrap CSS -->
+
+
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+
+    <style>
+        body {
+            background-image: linear-gradient(rgba(29, 212, 212, 0.664), rgba(0, 0, 0, 0.7)), url("css/img/1.jpg"), url(img/1.jpg);
+
+            background-size: cover;
+        }
+
+        body {
+            background: rgb(38, 202, 231);
+        }
+
+        hr {
+            background: rgb(228, 65, 36)
+        }
+
+        .contact-form {
+            background: rgb(242, 244, 245);
+            color: black;
+            margin-top: 20px;
+
+            padding: 100px;
+
+            box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
+        }
+
+        .hidden {
+            display: none;
+
+        }
+
+        .hidden2 {
+            display: none;
+        }
+    </style>
+    <script>
+        function showHide() {
+            var checkbox = document.getElementById("chk");
+            var hiddeninputs = document.getElementsByClassName("hidden");
+            for (var i = 0; i != hiddeninputs.length; i++) {
+                if (checkbox.checked) {
+                    hiddeninputs[i].style.display = "block";
+                } else {
+                    hiddeninputs[i].style.display = "none";
+                }
+            }
+
+
+        }
+
+
+        function showHidee() {
+            var checkbox = document.getElementById("chkk");
+            var hiddeninputs = document.getElementsByClassName("hidden2");
+            for (var i = 0; i != hiddeninputs.length; i++) {
+                if (checkbox.checked) {
+                    hiddeninputs[i].style.display = "block";
+                } else {
+                    hiddeninputs[i].style.display = "none";
+                }
+            }
+
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <% include partials/adminnav %>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- navbar -->
+    <!-- ============================================================== -->
+
+
+    <!-- ============================================================== -->
+    <!-- end left sidebar -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- wrapper  -->
+    <!-- ============================================================== -->
+    <div class="dashboard-wrapper">
+        <div class="container-fluid  dashboard-content">
+            <!-- ============================================================== -->
+            <!-- pageheader -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-header">
+                        <h2 class="pageheader-title">Allot Bed Bed</h2>
+                        <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit
+                            amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                        <div class="page-breadcrumb">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+
+
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end pageheader -->
+            <!-- ============================================================== -->
+
+
+
+            <div class="container contact-form">
+                <h1>Allot Bed</h1>
+                <hr>
+                <div class="row">
+                    <div class="col-md-10">
+
+
+
+                        <div class="col-md-8">
+
+
+
+                            <div class="form-group">
+                                <label>Name</label>
+                                <Input type="text" name="catagory" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <Input type="email" name="catagory" class="form-control">
+                            </div>
+                            <div>
+                                <label> Password</label>
+                                <Input type="password" name="catagory" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>specilizatione</label>
+                                <Input type="text" name="catagory" class="form-control">
+                            </div>
+
+
+
+
+
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <Input type="number" name="catagory" class="form-control">
+                            </div>
+
+
+                            <br>
+
+
+                            <input class="btn btn-primary" type="submit" value="submit">
+
+
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- end footer -->
+    <!-- ============================================================== -->
+
+
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <script src="/vendors/js/jquery-3.3.1.min.js"></script>
+    <script src="/vendors/css/bootstrap.bundle.js"></script>
+    <script src="/vendors/js/jquery.slimscroll.js"></script>
+    <script src="/vendors/js/main-js.js"></script>
+
+</body>
+
+</html>

@@ -10,7 +10,6 @@ const hospitalSchema = mongoose.Schema({
     email:{
         type:String,
         require:true,
-        unique:true,
         match:/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
     },
     password:{
@@ -21,13 +20,17 @@ const hospitalSchema = mongoose.Schema({
     type:String,
     require:true
     },
-   
-    patient_limit:{
-        type:Number,
+   phone:{
+    type: String,
+    validate: {
+        validator: function(v) {
+          return /\d{4}-\d{7}/.test(v);
+        },
+        message: '{VALUE} is not a valid phone number!' },
         require:true
-    },
-    dr_limit:{
-        type:Number,
+   },
+   status:{
+        type:String,
         require:true
     }
 });

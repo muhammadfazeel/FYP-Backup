@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Concept</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+     
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+
+<style>
+        body{
+             background-image: linear-gradient(rgba(29, 212, 212, 0.664), rgba(0, 0, 0, 0.7)),url("css/img/1.jpg"),   url(img/1.jpg);
+      
+            background-size: cover;
+        }  
+         body{
+            background: rgb(247, 247, 247);
+        }
+        hr{
+            background: rgb(228, 65, 36)
+        }
+        .contact-form{
+            background:rgb(242, 244, 245);
+            color: black;
+            margin-top: 20px;
+
+          padding: 100px;
+
+            box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
+        }
+       
+.container{
+   padding: 10px;
+   
+}
+</style>
+<body>
+         
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    
+            <% include partials/adminnav %>
+
+            <div class="dashboard-wrapper">
+                    <div class="container-fluid  dashboard-content">
+                        
+                        <!-- ============================================================== -->
+                        <!-- pageheader -->
+                        <!-- ============================================================== -->
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="page-header">
+                                    <h2 class="pageheader-title">All Departments </h2>
+                                    <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                                        <div class="page-breadcrumb">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                        <button class="btn btn-danger btn-rounded btn-sm my-0">Add New</button>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    <div class="page-breadcrumb">
+                                        <nav aria-label="breadcrumb">
+            
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  <!-- ============================================================== -->
+                        <!-- end   pageheader -->
+                        <!-- ============================================================== -->
+            
+                        <!-- ============================================================== -->
+                        <!-- table -->
+                        <!-- ============================================================== -->
+                         
+            <div class="container">
+                    <div class="row">
+                            <% for(let i = 0; i < posts.length; i++) { %>
+                            <div class="col-sm-6">
+                              <div class="card">
+                                <div class="card-body">
+                                  <h5 class="card-title"><%= posts[i].name %></h5>
+                                  <p class="card-text"><%= posts[i].description %></p>
+                                  <form method="POST" action="/department/<%= posts[i]._id %>?_method=DELETE">                                 
+                                    <td><button type="submit" class="btn btn-outline-primary" onclick="spjs.contentApproval.toggleApprovelStatus(0);return false;">Delete</button>
+                                    </form>
+                                </div>
+                              </div>
+                            </div>
+                            <% } %>
+                            
+                          </div>
+    
+            </div>
+                          
+                    </div>
+                  </div> 
+    <script src="/vendors/js/jquery-3.3.1.min.js"></script>
+    <script src="/vendors/css/bootstrap.bundle.js"></script>
+    <script src="/vendors/js/jquery.slimscroll.js"></script>
+    <script src="/vendors/js/main-js.js"></script>
+</body>
+ 
+</html>

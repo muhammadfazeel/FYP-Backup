@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Form Validation</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../vendors/css/bootstrap.min.css">
+     <link href="../resources/css/admin.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="../vendors/css/style.css">
+    <link rel="stylesheet" href="../resources/css/fontawesome-all.css">
+    
+
+   <style>
+        body{
+             background-image: linear-gradient(rgba(29, 212, 212, 0.664), rgba(0, 0, 0, 0.7)),url("css/img/1.jpg"),   url(img/1.jpg);
+      
+            background-size: cover;
+        }  
+         body{
+            background: rgb(38, 202, 231);
+        }
+        hr{
+            background: rgb(228, 65, 36)
+        }
+        .contact-form{
+            background:rgb(242, 244, 245);
+            color: black;
+            margin-top: 20px;
+
+          padding: 100px;
+
+            box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
+        }
+        .hidden{
+            display: none;
+            
+        }
+        .hidden2{
+            display: none;
+        }
+ 
+
+
+      
+</style>
+<script>
+
+function showHide(){
+var checkbox= document.getElementById("chk");
+var hiddeninputs =document.getElementsByClassName("hidden");
+for( var i=0; i!= hiddeninputs.length; i++){
+    if(checkbox.checked){
+        hiddeninputs[i].style.display= "block";
+    }
+    else{
+        hiddeninputs[i].style.display= "none";
+    }
+}
+
+
+}
+
+
+function showHidee(){
+var checkbox= document.getElementById("chkk");
+var hiddeninputs =document.getElementsByClassName("hidden2");
+for( var i=0; i!= hiddeninputs.length; i++){
+    if(checkbox.checked){
+        hiddeninputs[i].style.display= "block";
+    }
+    else{
+        hiddeninputs[i].style.display= "none";
+    }
+}
+
+
+}
+
+
+
+
+
+</script>
+
+
+
+
+
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+         <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        
+
+        <div class="dashboard-header">
+                <nav class="navbar navbar-expand-lg bg-info fixed-top">
+                        <a class="navbar-brand text-dark" href="../index.html">Multi Hospital System</a>
+                 
+                       
+                   
+
+
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                            
+                        <ul class="navbar-nav ml-auto navbar-right-top">
+                                <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item active ">
+                                          <a class="nav-link" href="#"><h3>Home </h3> <span class="sr-only">(current)</span></a>
+                                        </li>
+                                </ul>
+                            <li class="nav-item">
+
+
+                                    
+                                <div id="custom-search" class="top-search-bar">
+                                    <input class="form-control" type="text" placeholder="Search..">
+                                </div>
+                            </li>
+                           
+                                
+                                
+                            
+                            
+                         
+                                
+                            
+                            <li class="nav-item dropdown nav-user">
+                                   
+                                <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../resources/img/hospital1.png" alt="" class="user-avatar-md rounded-circle"></a>
+                                <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                    <div class="nav-user-info">
+                                        <h5 class="mb-0 text-white nav-user-name">
+
+                                            <div class="collapse navbar-collapse" id="navbarNav">
+                             <ul class="navbar-nav">
+                              <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                              </li>
+                             
+                            </ul>
+                          </div>
+    John Abraham</h5>
+    
+                                        <span class="status"></span><span class="ml-2"> Avalible </span>
+                                    </div >
+                                    <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+           
+      <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light" >
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="../Resources/superadmin.html"  aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
+                                
+                        
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Resources/hospitals.html" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>All hospital</a>
+                                
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Resources/createhospital.html"  aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Create Hospital</a>
+                                
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../Resources/request.html"  aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Request</a>
+                                
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Resources/setting.html"  aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>System Setting</a>
+                                
+                            </li>
+                            <!-- <li class="nav-divider">
+                                Features
+                            </li> -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Resources/profile.html"  aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>profile</a>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                    </nav>
+            </div>
+      </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="container-fluid  dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Setting</h2>
+                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        
+                                       
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end pageheader -->
+                <!-- ============================================================== -->
+             
+
+
+                <div class="container contact-form">
+                        <h1>Update Info</h1>
+                        <hr>
+                          <div class="row">
+                         <div class="col-md-10">
+                         
+                         <div class="col-md-8">
+                                
+                             
+                                        
+                                   
+                                   
+        
+                                <div class="form-group">
+                                        <label>bed catagory</label>
+                                        <Input type="text" name="title" class="form-control">
+                                    </div>
+                                
+                                  
+                                   
+                                   
+                                              </div>
+
+                                   <div class="form-group">
+                                   <label>bed number</label>
+                                   <Input type="text" name="number" class="form-control">
+                               </div>
+                              
+                                      
+
+
+                                                    
+                                       
+                                                    <input class="btn btn-primary" type="submit" value="submit">
+                
+        
+        
+                                                        </div>
+                         </div>
+                         
+                    
+                    
+                        </div>
+                    
+                    </div>
+                </div>
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <!-- <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="javascript: void(0);">About</a>
+                                <a href="javascript: void(0);">Support</a>
+                                <a href="javascript: void(0);">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <script src="../vendors/js/jquery-3.3.1.min.js"></script>
+    <script src="../vendors/css/bootstrap.bundle.js"></script>
+    <script src="../vendors/js/jquery.slimscroll.js"></script>
+    <script src="../vendors/js/main-js.js"></script>
+   
+</body>
+ 
+</html>

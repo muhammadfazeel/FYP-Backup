@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/bootstrap.min.css">
+     <link href="./vendors.css/admin.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="../resources/css/fontawesome-all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+
+<link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet"/>
+
+
+
+
+    <style>
+
+
+
+
+
+
+        body{
+             background-image: linear-gradient(rgba(29, 212, 212, 0.664), rgba(0, 0, 0, 0.7)),url("css/img/1.jpg"),   url(img/1.jpg);
+      
+            background-size: cover;
+        }  
+         body{
+            background: rgb(247, 247, 247);
+        }
+        hr{
+            background: rgb(228, 65, 36)
+        }
+        .contact-form{
+            background:rgb(242, 244, 245);
+            color: black;
+            margin-top: 20px;
+
+          padding: 100px;
+
+            box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
+        }
+        </style>
+
+<script>
+     
+     
+     $(document).ready(function() {
+    $('#example').DataTable();
+} );
+
+</script>
+
+</head>
+
+<body>
+        <% include partials/adminnav %> 
+
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+   
+      <div class="dashboard-wrapper">
+        <div class="container-fluid  dashboard-content">
+            
+            <!-- ============================================================== -->
+            <!-- pageheader -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-header">
+                        <h2 class="pageheader-title">All Beds</h2>
+                        <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        
+                                    </ol>
+                                </nav>
+                            </div>
+                        <div class="page-breadcrumb">
+                            <nav aria-label="breadcrumb">
+                                    <td><a class="btn btn-danger btn-rounded btn-sm my-0">Add New</a></td> 
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      <!-- ============================================================== -->
+            <!-- end   pageheader -->
+            <!-- ============================================================== -->
+
+            <!-- ============================================================== -->
+            <!-- table -->
+            <!-- ============================================================== -->
+            
+            
+                <!-- ============================================================== -->
+                <!-- basic table  -->
+                <!-- ============================================================= -->
+                <table id="example" class=" table table-striped table-bordered" >
+                <thead>
+                        <tr>
+                            <th>
+                             Bed catagory
+                            </th>
+                            <th>bed num</th>
+                            <th>status</th>
+                           
+                            
+                            <th>Option</th>
+                        </tr>
+                    </thead>
+                <% for(let i = 0; i < posts.length; i++) { %>
+                    <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                
+                            <div class="table-responsive">
+                             
+                                    
+                                    <tbody>
+                                        <tr>
+                                                <td><%= posts[i].title %></td>
+                                                <td><%= posts[i].body %></td>
+                                                <td><a class="btn btn-success btn-rounded btn-sm my-0">Alloted</a>
+                                                <a class="btn btn-info btn-rounded btn-sm my-0">Availible</a></td>
+                                               
+                                             
+                                                <td><a class="btn btn-danger btn-rounded btn-sm my-0">Delete</a></td>
+                                                
+                                            
+                                                   
+         
+                                        </tr>
+                                    </tbody>
+                                 
+
+                           
+                            </div>
+                </div>
+                    </div>
+                       
+                <% } %>
+            </table>
+        </div>
+      </div> 
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+       
+    <script src="../vendors/js/jquery-3.3.1.min.js"></script>
+    <script src="../vendors/css/bootstrap.bundle.js"></script>
+    <script src="../vendors/js/jquery.slimscroll.js"></script>
+    <script src="../vendors/js/main-js.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+ 
+</html>

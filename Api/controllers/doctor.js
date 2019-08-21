@@ -27,7 +27,7 @@ exports.signupDoctor=(req,res,next)=>{
                             
                             const doctor=new Doctor ({
                                 hid:req.userData.hospitalid,
-                                name:req.body.title,
+                                name:req.body.name,
                                 email:req.body.email,
                                 password:hash,
                                 department:req.body.department,
@@ -38,17 +38,11 @@ exports.signupDoctor=(req,res,next)=>{
                             doctor.save()
                             .then(result=>
                                 {
-                                console.log(result);
-                                
-                                res.status(201).json({
-                                
-                                message:'Doctor Created'
-                                
-                            });
                                 const User= new Userdata
                                 ({
                                     hid:req.userData.hospitalid,
-                                    name:req.body.title,
+                                    userId:result._id,
+                                    name:req.body.name,
                                     email:req.body.email,
                                     password:hash,
                                     phone:req.body.phone,
@@ -58,7 +52,13 @@ exports.signupDoctor=(req,res,next)=>{
                                 .then()
                                 .catch(err=>{
                                     console.log(err);
-                                })
+                                }) 
+                            return  res.json({
+                                    status:'success',
+                                    
+                                    redirect:'/doctor/signup',
+
+                                });
                             })
                             .catch(err=>{
                                 console.log(err);
@@ -75,3 +75,21 @@ exports.signupDoctor=(req,res,next)=>{
     
 
 };
+
+//To Delete Doctor
+exports.deleteDoctor=async (req,res,next)=>{
+    let Hospital
+    let User
+  try {
+    Hospital = await Doctor.findById(req.params.id)
+    await Hospital.remove().then(async result=>{
+        User= await Userdata.findOne({userId:req.params.id});
+        await User.remove()
+    })
+    res.redirect('/doctor/doctorList')
+  } catch {
+    
+      res.redirect('/doctor/doctorList')
+  }
+
+}
