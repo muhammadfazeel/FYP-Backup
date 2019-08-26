@@ -8,11 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../vendors/css/bootstrap.min.css">
-     <link href="../resources/css/admin.css" rel="stylesheet"> 
-    <link rel="stylesheet" href="../vendors/css/style.css">
-    <link rel="stylesheet" href="../resources/css/fontawesome-all.css">
-    <link rel="stylesheet" type="text/css" href="../vendors/css/ionicons.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+      
+    <link rel="stylesheet" href="/css/style.css">
+    
 
 
 
@@ -96,7 +95,7 @@
                                 Name
                             </th>
                             <th>Email</th>
-                            <th>Doctor</th>
+                            <th>Blood</th>
                            
                             <th>Option</th>
                         </tr>
@@ -110,11 +109,13 @@
                                     
                                     <tbody>
                                         <tr>
-                                                <td><%= posts[i].title %></td>
-                                                <td><%= posts[i].body %></td>
+                                                <td><%= posts[i].name %></td>
+                                                <td><%= posts[i].email %></td>
                                               
-                                                <td><%= posts[i].title %></td>
-                                               <td><a class="btn btn-danger btn-rounded btn-sm my-0">Delete</a></td> 
+                                                <td><%= posts[i].blood %></td>
+                                                <form method="POST" action="/patient/<%= posts[i]._id %>?_method=DELETE">                                 
+                                                    <td><button type="submit" class="btn-danger btn-rounded btn-sm my-0 btn btn-outline-primary" onclick="spjs.contentApproval.toggleApprovelStatus(0);return false;">Delete</button>
+                                                    </form>
                                                 
                                                 
                                             
@@ -136,11 +137,6 @@
         <!-- ============================================================== -->
         <!-- ============================================================== -->
        
-    <script src="../vendors/js/jquery-3.3.1.min.js"></script>
-    <script src="../vendors/css/bootstrap.bundle.js"></script>
-    <script src="../vendors/js/jquery.slimscroll.js"></script>
-    <script src="../vendors/js/main-js.js"></script>
-
 </body>
  
 </html>

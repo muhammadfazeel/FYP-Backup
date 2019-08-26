@@ -65,6 +65,7 @@ exports.createPatient=(req,res,next)=>{
                                 console.log(err);
                             })
                             
+                            
                     }
                     
                 })

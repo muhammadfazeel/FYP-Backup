@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Appoinments</title>
+    <title>Add Patient</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
@@ -23,15 +23,12 @@
 
         background-size: cover;
       }
-
       body {
         background: rgb(38, 202, 231);
       }
-
       hr {
         background: rgb(228, 65, 36);
       }
-
       .contact-form {
         background: rgb(242, 244, 245);
         color: black;
@@ -41,11 +38,9 @@
 
         box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
       }
-
       .hidden {
         display: none;
       }
-
       .hidden2 {
         display: none;
       }
@@ -78,45 +73,18 @@
   </head>
 
   <body>
-    <% include partials/doctornav %>
-    <!-- ============================================================== -->
-    <!-- navbar -->
-    <!-- ============================================================== -->
+    <% include partials/adminnav %>
     <div class="dashboard-wrapper">
       <div class="container-fluid  dashboard-content">
-        <!-- ============================================================== -->
-        <!-- end pageheader -->
-        <!-- ============================================================== -->
-
         <div class="container contact-form">
           <h1>Book Appointment</h1>
           <hr />
           <div class="row">
             <div class="col-md-10">
               <div class="col-md-8">
-                <input
-                  type="checkbox"
-                  name="chkbox2"
-                  id="chkk"
-                  onclick="showHidee()"
-                />
-                <label for="chk">Select Patient</label>
-                <br />
-                <div class="hidden2">
-                  <label> Select Patient</label>
-                  <select name="language" class="form-control">
-                    <option value="friends" selected>Urdu</option>
-                    <option value="search">English</option>
-                    <option value="ad">Arabic</option>
-                    <option value="other">French</option>
-                  </select>
-                </div>
-                <input
-                  type="checkbox"
-                  name="chkbox"
-                  id="chk"
-                  onclick="showHide()"
-                />
+                
+                
+                
                 <label for="chk">Add New Patient</label>
                 <div class="hidden">
                   <div class="form-group">
@@ -126,36 +94,27 @@
 
                   <div class="form-group">
                     <label>patient phone</label>
-                    <Input type="tel" name="phone" class="form-control" />
+                    <Input type="phone" name="phone" class="form-control" />
                   </div>
                   <div class="form-group">
-                    <label>patient Adress</label>
-                    <Input type="text" name="adress" class="form-control" />
+                    <label>patient email</label>
+                    <Input type="email" name="email" class="form-control" />
                   </div>
                 </div>
-                <div>
-                  <label> Specilization</label>
-                  <select name="language" class="form-control">
-                    <option value="friends" selected>1</option>
-                    <option value="search">2</option>
-                    <option value="ad">3</option>
-                    <option value="other">4</option>
-                  </select>
+                <div> 
+                
                 </div>
-
                 <div>
                   <label> Doctors</label>
-                  <select name="language" class="form-control">
-                    <option value="dr1" selected>1</option>
-                    <option value="dr2">2</option>
-                    <option value="dr3">3</option>
-                    <option value="dr4">4</option>
+                  
+                  <select name="doctor" class="form-control">
+                        <% for(var i=0; i < posts.length; i++) { %>
+                            <option><%= Posts[i].name %></option>
+                        <% } %>
                   </select>
+                
                 </div>
-                <div class="form-group">
-                  <label>Date</label>
-                  <input type="date" name="bday" class="form-control" />
-                </div>
+                
 
                 <div>
                   <label> Appoinment status</label>
@@ -173,10 +132,6 @@
           </div>
         </div>
       </div>
-      <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- end main wrapper -->
-    <!-- ============================================================== -->
   </body>
 </html>

@@ -22,7 +22,7 @@ router.get('/getappontment',checkauth,appointmentController.getallAppointment);
 //To Delete Appointment
 router.delete('/deleteAppointment',checkauth,appointmentController.deleteAppointment);
 //To Add New Appointment
-router.post('/addAppointment',checkauth,appointmentController.addAppointment);
+router.post('/addApp',checkauth,appointmentController.addAppointment);
 
 
 module.exports=router;

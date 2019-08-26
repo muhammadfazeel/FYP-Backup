@@ -10,7 +10,7 @@ const session=require('express-session');
 const methodOverride=require('method-override');
 //var express_layout = require('express-ejs-layouts');
 
-
+const Recep = require('./Api/routes/recep')
 const userRoutes=require('./Api/routes/user');
 const hospitalroutes=require("./Api/routes/create-hospital");
 const superadminroutes=require("./Api/routes/superadmin");
@@ -103,6 +103,8 @@ app.use("/patient",patientRoutes);
 //Routes For Admin
 app.use('/admin',adminRoutes);
 //Routes for Department
-app.use('/department',department)
+app.use('/department',department);
+//Routes For Recep
+app.use('/recep',Recep);
 
 module.exports=app

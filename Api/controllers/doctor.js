@@ -4,6 +4,7 @@ const jwt=require('jsonwebtoken');
 
 const Userdata = require("../Models/user");
 const Doctor = require('../Models/doctor');
+const AppointmentsData = require('../Models/appointments');
 
 exports.signupDoctor=(req,res,next)=>{
     Userdata.find({
@@ -93,3 +94,10 @@ exports.deleteDoctor=async (req,res,next)=>{
   }
 
 }
+// To Get All Appointments Of Doctor
+exports.getDoctorAppointments=async (req,res,next)=>{
+    let Hospital
+    let User
+ 
+    Hospital = await AppointmentsData.findById(req.params.id)
+  }

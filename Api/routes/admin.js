@@ -12,7 +12,10 @@ router.get('/Home',auth,(req,res)=>{
 router.get('/Dashboard',auth,(req,res)=>{
     res.render('admin');
 })
-
+//To Add Bed
+router.get('/addbed',auth,(req,res)=>{
+    res.render('addbed');
+})
 //To Add 
 router.get('/AddDepartment',auth,(req,res)=>{
     res.render('adddepart');

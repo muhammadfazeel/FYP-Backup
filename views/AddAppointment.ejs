@@ -9,7 +9,6 @@
     />
     <title>Form Validation</title>
     <!-- Bootstrap CSS -->
-
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
     <link rel="stylesheet" href="/css/style.css" />
@@ -24,15 +23,12 @@
 
         background-size: cover;
       }
-
       body {
-        background: rgb(38, 202, 231);
+        background: rgb(252, 252, 252);
       }
-
       hr {
         background: rgb(228, 65, 36);
       }
-
       .contact-form {
         background: rgb(242, 244, 245);
         color: black;
@@ -42,11 +38,9 @@
 
         box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
       }
-
       .hidden {
         display: none;
       }
-
       .hidden2 {
         display: none;
       }
@@ -79,9 +73,8 @@
   </head>
 
   <body>
-    <% include partials/adminnav %>
-    <!-- wrapper  -->
-    <!-- ============================================================== -->
+    <% include partials/receptionnav %>
+
     <div class="dashboard-wrapper">
       <div class="container-fluid  dashboard-content">
         <!-- ============================================================== -->
@@ -90,7 +83,7 @@
         <div class="row">
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-              <h2 class="pageheader-title">Add Department</h2>
+              <h2 class="pageheader-title">Appointment</h2>
               <p class="pageheader-text">
                 Proin placerat ante duiullam scelerisque a velit ac porta, fusce
                 sit amet vestibulum mi. Morbi lobortis pulvinar quam.
@@ -106,38 +99,51 @@
         <!-- ============================================================== -->
         <!-- end pageheader -->
         <!-- ============================================================== -->
+
         <div class="container contact-form">
-          <h1>Add</h1>
+          <h1>Add Appointment</h1>
           <hr />
-          <div class="row">
+          <form id="Appointment">
+          <div class="row">             
             <div class="col-md-10">
-             <form id="Depart">
               <div class="col-md-8">
-                <div class="form-group">
-                    
-                  <label>Name</label>
-                  <Input type="text" name="catagory" class="form-control" id="nameid" />
+                <div>
+                  <label> Patient</label>
+                  <select class="browser-default custom-select" id="patientid">
+                        <% for(var i=0; i < posts.length; i++) { %>
+                            <option value="<%= posts[i]._id %>"><%= posts[i].name %></option>
+                        <% } %>    
+                </select>
                 </div>
-                <div class="form-group"><label>Description</label>
-                    <Input type="text" name="catagory" class="form-control" id="desid"/>
-                  </div>
-                <br />
-                <input class="btn btn-primary" type="submit" value="submit" />
-              </div>
-              </form>
+                <div>
+                  <label> Doctor</label>
+                  <select class="browser-default custom-select" id="doctorid">
+                        <% for(var i=0; i < post.length; i++) { %>
+                            <option value="<%= post[i]._id %>"><%= post[i].name %></option>
+                        <% } %>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Date</label>
+                  <input  type="datetime-local" name="bday" class="form-control" id="dateid" />
+                </div>
+
+                <div>
+                  <label>Time</label>
+                  <input  type="time" name="bday" class="form-control" id="timeid" />
+                </div>
+                </div>
+              <br />
+              <div class="form-group">
+                    <button type="submit" class="btn btn-primary " id="btn">Submit</button>
+                </div>
+
             </div>
           </div>
+        </form>
         </div>
       </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- end main wrapper -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-    <script src="/vendors/js/jquery-3.3.1.min.js"></script>
-    <script src="/vendors/css/bootstrap.bundle.js"></script>
-    <script src="/vendors/js/jquery.slimscroll.js"></script>
-    <script src="/vendors/js/main-js.js"></script>
     <script rel="javascript" type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script rel="javascript" type="text/javascript" src="/main.js"></script>
   </body>

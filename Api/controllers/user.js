@@ -75,6 +75,7 @@ exports.User_signin=(req,res,next)=>{
     {
         email:user[0],
         userId:user[0]._id,
+        uid:user[0].userId,
         hospitalid:user[0].hid,
         name:user[0].name,
         role:user[0].role
@@ -94,13 +95,15 @@ exports.User_signin=(req,res,next)=>{
       }
     
     else if(user[0].role==="admin"){
-        
+        console.log('Here We Are')
         //console.log(user[0].hid);
        HospitalData.findOne({_id:user[0].hid.toString()}).then(response=>{
         
         if(response.status==='Active'){ 
+            
             storage.setItem('data',token);  
              return res.json({
+                accessToken: token,
                 redirect:'/admin/Home'
             })
             }else{
@@ -114,18 +117,35 @@ exports.User_signin=(req,res,next)=>{
         
     }
     else if(user[0].role==="doctor"){
-        storage.setItem('data',token);
-        return res.status(200).json({
-            message:"Auth Successful You Are doctor",
-            token:token})
-    }
-    else if ( user[0].role==="patient"){
-        storage.setItem('data',token);
-        return res.status(200).json({
-            message:"Auth Successful You Are patient",
-            token:token})
-            
         
+        HospitalData.findOne({_id:user[0].hid.toString()}).then(response=>{
+            if(response.status==='Active'){ 
+                storage.setItem('data',token);  
+                 return res.json({
+                    accessToken: token,
+                    redirect:'/doctor/Home'
+                })
+                }else{
+                    res.json({redirect:'/login'})
+                }
+           }).catch(err=>{
+               res.json('ERERERER')
+           })
+       }
+    else if ( user[0].role==="recep"){
+        HospitalData.findOne({_id:user[0].hid.toString()}).then(response=>{
+            if(response.status==='Active'){ 
+                storage.setItem('data',token);  
+                 return res.json({
+                    accessToken: token,
+                    redirect:'/recep/Home'
+                })
+                }else{
+                    res.json({redirect:'/login'})
+                }
+           }).catch(err=>{
+               res.json('ERERERER')
+           })
     }
 }
     

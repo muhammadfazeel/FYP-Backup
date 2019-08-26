@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Form Validation</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+      body {
+        background-image: linear-gradient(
+            rgba(29, 212, 212, 0.664),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("css/img/1.jpg"), url(img/1.jpg);
+
+        background-size: cover;
+      }
+
+      body {
+        background: rgb(38, 202, 231);
+      }
+
+      hr {
+        background: rgb(228, 65, 36);
+      }
+
+      .contact-form {
+        background: rgb(242, 244, 245);
+        color: black;
+        margin-top: 20px;
+
+        padding: 100px;
+
+        box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .hidden2 {
+        display: none;
+      }
+    </style>
+    <script>
+      function showHide() {
+        var checkbox = document.getElementById("chk");
+        var hiddeninputs = document.getElementsByClassName("hidden");
+        for (var i = 0; i != hiddeninputs.length; i++) {
+          if (checkbox.checked) {
+            hiddeninputs[i].style.display = "block";
+          } else {
+            hiddeninputs[i].style.display = "none";
+          }
+        }
+      }
+
+      function showHidee() {
+        var checkbox = document.getElementById("chkk");
+        var hiddeninputs = document.getElementsByClassName("hidden2");
+        for (var i = 0; i != hiddeninputs.length; i++) {
+          if (checkbox.checked) {
+            hiddeninputs[i].style.display = "block";
+          } else {
+            hiddeninputs[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <% include partials/doctornav %>
+
+    <div class="dashboard-wrapper">
+      <!-- ============================================================== -->
+      <!-- end pageheader -->
+      <!-- ============================================================== -->
+
+      <div class="container contact-form">
+        <h1>Add Schedule</h1>
+        <hr />
+        <div class="row">
+          <div class="col-md-10">
+            <div class="col-md-8">
+              <div>
+                <label> WeakDay</label>
+                <select class="browser-default custom-select">
+                  <option value="monday" selected>Monday</option>
+                  <option value="tuesday">Tuesday</option>
+                  <option value="wednesday">Wednesday</option>
+                  <option value="thursday">Thursday</option>
+                  <option value="friday">Friday</option>
+                  <option value="saturday">Saturday</option>
+                  <option value="sunday">Sunday</option>
+                </select>
+              </div>
+
+              <div>
+                <label>Start Time</label>
+                <input
+                  type="time"
+                  name="usr_time"
+                  class="form-control"
+                  style="font-weight: bold;"
+                />
+              </div>
+
+              <div>
+                <label>End Time</label>
+                <input
+                  type="time"
+                  name="usr_time"
+                  class="form-control"
+                  style="font-weight: bold"
+                  ;
+                />
+              </div>
+
+              <div>
+                <label> Appointment Duration</label>
+                <select class="browser-default custom-select">
+                  <option value="mins" selected>20 min</option>
+                </select>
+              </div>
+
+              <br />
+
+              <input class="btn btn-primary" type="submit" value="Add" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
