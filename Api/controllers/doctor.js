@@ -94,10 +94,26 @@ exports.deleteDoctor=async (req,res,next)=>{
   }
 
 }
-// To Get All Appointments Of Doctor
-exports.getDoctorAppointments=async (req,res,next)=>{
-    let Hospital
-    let User
- 
-    Hospital = await AppointmentsData.findById(req.params.id)
+//To Get Todays Appointments
+exports.getallAppointmentToday=async(req,res,next)=>{
+    let App=await AppointmentsData.find({date:new Date()})
+    console.log(App)
+    return res.render('TodayAppointments',{
+      posts:App
+    })
+}
+
+//To Delete Appointment
+exports.deleteReceptApp=async (req,res,next)=>{
+    let App
+  try {
+    App = await AppointmentsData.findById(req.params.id)
+    await App.remove()
+    
+    res.redirect('/doctor/Appointment')
+  } catch {
+    
+      res.redirect('/doctor/Appointment')
+  }
+  
   }

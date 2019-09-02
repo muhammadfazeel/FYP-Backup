@@ -45,6 +45,7 @@
         display: none;
       }
     </style>
+    
     <script>
       function showHide() {
         var checkbox = document.getElementById("chk");
@@ -111,7 +112,7 @@
                   <label> Patient</label>
                   <select class="browser-default custom-select" id="patientid">
                         <% for(var i=0; i < posts.length; i++) { %>
-                            <option value="<%= posts[i]._id %>"><%= posts[i].name %></option>
+                            <option value="<%= posts[i]._id %>"><%= posts[i].email %></option>
                         <% } %>    
                 </select>
                 </div>
@@ -128,11 +129,11 @@
                   <input  type="datetime-local" name="bday" class="form-control" id="dateid" />
                 </div>
 
-                <div>
+                <!-- <div>
                   <label>Time</label>
                   <input  type="time" name="bday" class="form-control" id="timeid" />
-                </div>
-                </div>
+                </div>-->
+                </div> 
               <br />
               <div class="form-group">
                     <button type="submit" class="btn btn-primary " id="btn">Submit</button>
@@ -144,6 +145,14 @@
         </div>
       </div>
     </div>
+    <script>
+        $(document).ready(function() {
+      $('#doctorid').on('change', function() {
+        alert($('#doctorid').val());
+      });
+    });
+    
+    </script>
     <script rel="javascript" type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script rel="javascript" type="text/javascript" src="/main.js"></script>
   </body>

@@ -3,6 +3,8 @@ const router=express.Router();
 
 const checkAuth=require('../middleware/check-auth');
 const AdminController=require("../controllers/superadmin");
+const superAdmin = require('../Models/user');
+const bcrpt=require('bcrypt');
 
 router.get('/superadmin',checkAuth,AdminController.GetData);
 
@@ -31,6 +33,25 @@ router.get('/Superinfo',checkAuth,(req,res,next)=>{
 });
 //To Delete Hospital
 router.delete('/:id',checkAuth,AdminController.deleteHospital);
-module.exports=router;
+
 //To Create Hospital By SuperAdmin
 router.post('/create',checkAuth,AdminController.createHospital);
+//To Update SuperAdmin
+router.post('/update',checkAuth,(req,res)=>{
+    bcrpt.hash(req.body.password,10,(err,hash)=>{
+        if(err){
+            return res.status(500).json({
+                error: err
+            });
+        }
+            else{
+    superAdmin.findOneAndUpdate({
+        _id:req.body.id
+      },{$set:{email:req.body.email,password:hash}},{new:true}).then().catch();
+
+}
+
+    })
+})
+
+module.exports=router;

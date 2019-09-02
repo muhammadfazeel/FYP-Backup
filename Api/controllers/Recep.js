@@ -2,6 +2,7 @@ const bcrpt= require('bcrypt')
 
 const Userdata = require('../Models/user');
 const Recept= require('../Models/Recep');
+const AppointmentData = require('../Models/appointments');
 
 //To Create Recep
 exports.CreateRecep = (req, res, next) => {
@@ -80,6 +81,20 @@ try {
 } catch {
   
     res.redirect('/recep/allRecep')
+}
+
+}
+//To Delete Appointment
+exports.deleteReceptApp=async (req,res,next)=>{
+  let App
+try {
+  App = await AppointmentData.findById(req.params.id)
+  await App.remove()
+  
+  res.redirect('/recep/allAppointments')
+} catch {
+  
+    res.redirect('/recep/allAppointments')
 }
 
 }

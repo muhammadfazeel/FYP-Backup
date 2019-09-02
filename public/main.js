@@ -59,7 +59,7 @@ $(document).ready(function(){
                 
             } 
             ,error:function(err){
-                alert("error");
+                alert("Please Enter Correct Information");
             }
         });
         return false;
@@ -169,24 +169,66 @@ $(document).ready(function(){
 //To Add Appointment
 $(document).ready(function(){
     $('#Appointment').submit(function(){
-        var mytitle = $('#patientid').val();
-        var myemail = $('#doctorid').val();
-        var mypassword=$('#dateid').val();
-        var myphone = $('#timeid').val();
+        var drname = $('#doctorid option:selected').text();
+        var ptname = $('#patientid option:selected').text();
+        var mypatient = $('#patientid').val();
+        var mydoctor = $('#doctorid').val();
+        var mydate=$('#dateid').val();
+        //var mytime = $('#timeid').val().toString();
         $.ajax({
             global: false,
             type: "post",
             url:'/appointment/addApp',
             data:{
-                patientid:mytitle,
-                doctorid:myemail,
-                date:mypassword,
-                time:myphone
+                patientid:mypatient,
+                doctorid:mydoctor,
+                date:mydate,
+                patient:ptname,
+                dr:drname
+                //time:mytime
             },
                 success:function(res){
                 alert("Appointment created successfuly ");
                 if ( res.status === 'success'){
                     // window.location = res.redirect
+                } 
+            },
+            error:function(err){
+                alert("Please Change Value");
+            }
+        });
+        return false;
+    })
+})
+//To Add Patient
+$(document).ready(function(){
+    $('#CreatePatient').submit(function(){
+        var mytitle = $('#nameid').val();
+        var myemail = $('#emailid').val();
+        var mypassword=$('#passwordid').val();
+        var myaddress = $('#bloodid').val();
+        var myspec = $('#genderid').val();
+        var myphone = $('#phoneid').val();
+        var myage = $('ageid').val();
+        $.ajax({
+            global: false,
+            type: "post",
+            url:'/patient/enter-patient',
+            dataType: "json",
+            data:{
+                name:mytitle,
+                email:myemail,
+                password:mypassword,
+                blood:myaddress,
+                gender:myspec,
+                phone:myphone,
+                age:myage  
+            },
+            
+            success:function(res){
+                alert("Patient created successfuly ");
+                if ( res.status === 'success'){
+                    window.location = res.redirect
                 } 
             },
             error:function(err){
@@ -196,3 +238,223 @@ $(document).ready(function(){
         return false;
     })
 })
+
+//To Add Hospital Wards
+$(document).ready(function(){
+    $('#addWard').submit(function(){
+        var myward = $('#wardid').val();
+        var mydesc = $('#descriptionid').val();
+        $.ajax({
+            global: false,
+            type: "post",
+            url:'/bed/addWard',
+            dataType: "json",
+            data:{
+               ward:myward,
+               description:mydesc
+            },        
+            success:function(res){
+                alert("Ward created successfuly ");
+                if ( res.status === 'success'){
+                    window.location = res.redirect
+                } 
+            },
+            error:function(err){
+                alert("Ward Already Exist");
+            }
+        });
+        return false;
+    })
+})
+
+//To Create bed
+$(document).ready(function(){
+    $('#addbed').submit(function(){
+        var myname = $('#nameid option:selected').text();
+        var wardsid = $('#nameid').val();
+        var mynumber = $('#numberid').val();
+        $.ajax({
+            global: false,
+            type: "post",
+            url:'/bed/addWardBed',
+            data:{
+               ward:myname,
+               number:mynumber,
+               wardid:wardsid
+            },        
+            success:function(res){
+                alert("Bed created successfuly ");
+                if ( res.status === 'success'){
+                    window.location = res.redirect
+                } 
+            },
+            error:function(err){
+                alert("Bed Already Exist");
+            }
+        });
+        return false;
+    })
+})
+
+//To Update
+$(function(){
+    $('#Prescription').submit(function(){
+        var ptid = $('#ptid').val();
+        var ptemail = $('#ptemail').val();
+        var drname=$('#drname').val();
+        var drid = $('#drid').val();
+        console.log(ptid);
+        console.log(ptemail);
+        console.log(drname);
+        $.ajax({
+            type: "post",
+            url:'/doctor/prescription?_method=get',
+            data:{
+                patientid:ptid,
+                patient:ptemail,
+                doctorid:drid,
+                dr:drname
+            },success:function(res){
+                
+                    window.location=res.redirect
+                 
+            },
+            error:function(err){
+                alert(" Something Wrong");
+            }
+        });
+        return false;
+    })
+});
+//To Create prescription and save to database for history
+$(function(){
+    $('#MedPress').submit(function(){
+        var hospitalid = $('#hid').val();
+        var ptname = $('#ptname').val();
+        var ptemail = $('#ptemail').val();
+        var ptid = $('#ptid').val();
+        var drname=$('#drname').val();
+        var drid = $('#drid').val();
+        var sym = $('#symptoms').val();
+        var diag = $('#diagnosis').val();
+        var med = $('#med').val();
+        var not = $('#note').val();
+        $.ajax({
+            type: "post",
+            url:'/doctor/MedHistory',
+            data:{
+                hid:hospitalid,
+                patientid:ptid,
+                patientemail:ptemail,
+                doctorid:drid,
+                doctorname:drname,
+                patientname:ptname,
+                symptoms:sym,
+                diagnosis:diag,
+                medicine:med,
+                note:not
+            },success:function(res){
+                alert("Saved");
+                    window.location=res.redirect
+                 
+            },
+            error:function(err){
+                alert(" Something Wrong");
+            }
+        });
+        return false;
+    })
+});
+
+
+//To Allot Bed
+$(function(){
+    $('#AllotBed').submit(function(){
+        var wardname = $('#wardname').val();
+        var ptid = $('#patientid').val();
+        var ptname= $('#patientid option:selected').text();
+        var bedid = $('#bedid').val();
+        var bednum= $('#bedid option:selected').text();
+        var des=$('#des').val();
+        $.ajax({
+            type: "post",
+            url:'/doctor/AllotBed',
+            data:{
+                bedid:bedid,
+                Pid:ptid,
+                Pname:ptname,
+                ward:wardname,
+                description:des,
+                bednum:bednum
+            },success:function(res){
+                alert("Alloted");
+                 window.location=res.redirect
+                 
+            },
+            error:function(err){
+                console.log(err)
+                alert(" Something Wrong"+err);
+            }
+        });
+        return false;
+    })
+});
+
+$(function(){
+    $('#payment').submit(function(){
+        var Pid = $('#Pname').val();
+        var Pname = $('#Pname option:selected').text();
+        var Did= $('#Dname').text();
+        
+        var Dname= $('#Dname option:selected').text();
+        var total=$('#total').text();
+        $.ajax({
+            type: "post",
+            url:'/recep/Addpayment',
+            data:{
+                Pid:Pid,
+                Pname:Pname,
+                Did:Did,
+                Dname:Dname,
+                total:total
+            },success:function(res){
+                alert("Payment Added");
+                 window.location=res.redirect
+                 
+            },
+            error:function(err){
+                console.log(err)
+                alert(" Something Wrong");
+            }
+        });
+        return false;
+    })
+});
+//Update SuperAdmin
+$(function(){
+    $('#update').submit(function(){
+        var id = $('#id').val();
+        var email= $('#emailid').val();
+        var password= $('#passwordid').val();
+        $.ajax({
+            type: "post",
+            url:'/superadmin/update',
+            data:{
+                id:id,
+                email:email,
+                password:password,
+                }
+                ,
+                success:function(res){
+                alert("Updated Added");
+                 window.location=res.redirect
+                 
+            },
+            error:function(err){
+                console.log(err)
+                alert(" Something Wrong");
+            }
+        });
+        return false;
+    })
+});

@@ -11,7 +11,7 @@ try
    } 
 catch(error)
 {
-    res.render('login');
+    res.redirect('/login');
 //     return res.status(401).json({
 //     message:"Auth Failed"
 // });

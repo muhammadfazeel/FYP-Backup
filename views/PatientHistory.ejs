@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Prescription</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <!------ Include the above in your HEAD tag ---------->
+
+    <style>
+      body {
+        background-image: linear-gradient(
+            rgba(29, 212, 212, 0.664),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("css/img/1.jpg"), url(img/1.jpg);
+
+        background: grey;
+      }
+
+      body {
+        background: rgb(247, 247, 247);
+      }
+
+      .container {
+        margin-top: 5px;
+        margin-left: 250px;
+      }
+
+      hr {
+        background: rgb(228, 65, 36);
+      }
+
+      .contact-form {
+        background: rgb(242, 244, 245);
+        color: black;
+        margin-top: 20px;
+
+        padding: 100px;
+
+        box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
+      }
+
+      
+    </style>
+  </head>
+
+  <body>
+    <% include partials/patientnav %>
+    <% for(let i = 0; i < posts.length; i++) { %>
+    <div class="container" id="ffggg">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body p-0">
+              <div class="row p-5">
+                <div class="col-md-12">
+                  <h1><%=post.title%></h1>
+                </div>
+
+                <div class="col-md-6">
+                  <p class="font-weight-bold mb-1">Invoice</p>
+                  <p class="text-muted"><%= Date() %></p>
+                </div>
+              </div>
+
+              <hr class="my-5" />
+              
+              
+                <div class="row pb-5 p-5">
+                  <div class="col-md-6">
+                    <p class="font-weight-bold mb-4">Dr Information</p>
+                    <p class="mb-1">
+                      <span class="text-muted">Name </span><%=posts[i].Dname %>
+                    </p>
+                    <p class="mb-1">
+                      <span class="text-muted">Specialization </span>
+                    </p>
+                  </div>
+
+                  <div class="col-md-6 text-right">
+                    <p class="font-weight-bold mb-4">Patient Info</p>
+                    <p class="mb-1">
+                      <span class="text-muted">Name </span><%=posts[i].Pname %>
+                    </p>
+                    <input
+                      hidden
+                      type="text"
+                      id="ptname"
+                      value="<%=posts.name %>"
+                    />
+                    <input
+                      hidden
+                      type="text"
+                      id="ptid"
+                      value="<%=posts._id %>"
+                    />
+                    <input
+                      hidden
+                      type="text"
+                      id="ptemail"
+                      value="<%=posts.email %>"
+                    />
+                    <p class="mb-1">
+                      <span class="text-muted">Email: </span><%=posts[i].Pemail
+                      %>
+                    </p>
+                  </div>
+                </div>
+                <form id="MedPress">
+                  <div class="row p-5">
+                    <div class="col-md-12">
+                      <label>Symptoms</label>
+                      <p><%=posts[i].symptoms%></p>
+                    </div>
+                    <div class="col-md-12">
+                      <label>Diagnosis</label>
+                      <p><%=posts[i].diagnosis%></p>
+                    </div>
+                    <div class="col-md-12">
+                      <label>Medicines</label>
+                      <p><%=posts[i].medicines%></p>
+                    </div>
+                    <div class="col-md-12">
+                      <label>Extra Notes</label>
+                      <p><%=posts[i].note%></p>
+                    </div>
+
+                    <div class="col-md-12">
+                      <label></label>
+                      <input
+                        type="button"
+                        class="btn btn-primary form-control"
+                        value="Print"
+                        onClick="window.print()"
+                      />
+                    </div>
+                  </div>
+                </form>
+                <div class="d-flex flex-row-reverse bg-dark text-white p-4">
+                  <div class="py-3 px-5 text-right">
+                    <div class="mb-2"></div>
+                    <div class="h2 font-weight-light">
+                      Multiple Hospital System
+                    </div>
+                  </div>
+
+                  <div class="py-3 px-5 text-right">
+                    <div class="mb-2"></div>
+                    <div class="h2 font-weight-light"></div>
+                  </div>
+
+                  <div class="py-3 px-5 text-right">
+                    <div class="mb-2"></div>
+                    <div class="h2 font-weight-light"></div>
+                  </div>
+                </div>
+              
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-light mt-5 mb-5 text-center small">
+          by :
+          <a class="text-light" target="_blank" href="http://totoprayogo.com"
+            >totoprayogo.com</a
+          >
+        </div>
+      </div>
+    </div>
+    <% } %>
+    <script
+      rel="javascript"
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+    ></script>
+    <script rel="javascript" type="text/javascript" src="/main.js"></script>
+  </body>
+</html>

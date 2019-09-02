@@ -10,15 +10,18 @@ const allotedBeds = mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"Bed"
     },
-    category:{
+    Pid:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Patient"
+    },
+    Pname:{
+        type:String
+    },
+    ward:{
         type:String,
         require:true
     },
-    number:{
-        type:String,
-        require:true
-    },
-    name:{
+    bednum:{
         type:String,
         require:true
     }
@@ -29,9 +32,6 @@ const allotedBeds = mongoose.Schema({
     status:{
         type:String,
         require:true
-    },
-    x:{
-
     }
 });
 module.exports=mongoose.model('Alloted-beds',allotedBeds);

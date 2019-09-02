@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
+</head>
 
 <body>
     <!-- ============================================================== -->
@@ -46,13 +46,11 @@
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                             aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
-                                <h5 class="mb-0 text-white nav-user-name">
-                                    John Abraham</h5>
-
+                                
                                 <span class="status"></span><span class="ml-2"> Avalible </span>
                             </div>
 
-                            <a class="dropdown-item" href="#"><i class="material-icons">person</i>Logout</a>
+                            <a class="dropdown-item" href="/logout/logout"><i class="material-icons">person</i>Logout</a>
                         </div>
                     </li>
                     </ul>
@@ -76,8 +74,8 @@
                                 Menu
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/doctor/Home" data-toggle="collapse" aria-expanded="false"
-                                    data-target="#submenu-1" aria-controls="submenu-1"><i
+                                <a class="nav-link active" href="/doctor/Home" data-toggle="collapse"
+                                    aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i
                                         class="fa fa-fw fa-user-circle"></i>Dashboard <span
                                         class="badge badge-success">6</span></a>
 
@@ -97,53 +95,28 @@
                                 </div>
                             </li>
 
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-                                    data-target="#submenu-4" aria-controls="submenu-4"><i
-                                        class="material-icons">add_box</i>Appointment</a>
-                                <div id="submenu-4" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/doctor/Appointment">Add ✚</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="form-validation.html">All</a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="multiselect.html">Today</a>
-                                        </li>
-
-                                </div>
-                            </li>
 
                             <!-- <li class="nav-divider">
                                 Features
                             </li> -->
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/doctor/prescription" aria-expanded="false"
-                                    data-target="#submenu-7" aria-controls="submenu-7"><i
-                                        class="material-icons">note</i>Prescription <span
-                                        class="badge badge-secondary">New</span></a>
+                           
+                            <li class="nav-item ">
+                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                        data-target="#submenu-4" aria-controls="submenu-4"><i
+                                            class="material-icons">add_box</i>Appointment</a>
+                                    <div id="submenu-4" class="collapse submenu">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                               
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/doctor/Appointment">All</a>
+                                            </li>
+                                            
+                                        </div>
+                                </li>
 
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-                                    data-target="#submenu-9" aria-controls="submenu-9"><i
-                                        class="material-icons">sms_failed</i>Lab Test</a>
-                                <div id="submenu-9" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="map-google.html">Lab report</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="map-vector.html">Add Lab Report</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
                                     data-target="#submenu-10" aria-controls="submenu-10"><i class="fa fa-folder-o"
@@ -151,18 +124,14 @@
                                 <div id="submenu-10" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Bed list</a>
+                                            <a class="nav-link" href="/doctor/wardsList">Bed list</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/doctor/addbed">Add beds</a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Allotments</a>
+                                            <a class="nav-link" href="/doctor/Allotments">Allotments</a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Add Allotments</a>
+                                            <a class="nav-link" href="/doctor/AllotBed">Add Allotments</a>
 
 
 

@@ -16,6 +16,7 @@
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
+    "express-flash": "0.0.2",
     "express-messages": "^1.0.1",
     "express-session": "^1.16.2",
     "express-validator": "^6.1.1",

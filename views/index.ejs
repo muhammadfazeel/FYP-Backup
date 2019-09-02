@@ -60,12 +60,16 @@
               
                     <form id="form" class="w3-container">
                       <div class="w3-section">
+                          <% if(messages.error){ %>
+                            <%= messages.error %>
+                            <% } %>
+
                         <label><b>Email</b></label>
                         <input class="w3-input w3-border w3-margin-bottom" type="email" name="email" id="emailid" placeholder="XXXX@XXX.com" required>
                         <label><b>Password</b></label>
                         <input class="w3-input w3-border"type="password" name="password" id="passwordid" placeholder="Password Here"  required>
                         <button class="w3-button w3-block w3-blue w3-section w3-padding" type="submit" name="submit">Login</button>
-                        <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+                        
                       </div>
                     </form>
               
@@ -77,13 +81,7 @@
                   </div>
                 </div>
               </div>
-
-
-
-
-
-       
-      </nav>
+   </nav>
       <div class="hero-text-box">
         <h1>Welcome To Multiple Hospital Portal</h1>
         <a class="btn btn-ghost" href="/form">Create Hospital</a>

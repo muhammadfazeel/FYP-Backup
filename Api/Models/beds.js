@@ -6,16 +6,18 @@ const bedSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "hospital"
     },
-    category:{
+    ward:{
         type:String,
         require:true
     },
+    wardid:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Ward"
+    },
+    
     number:{
         type:String,
         require:true
-    },
-    description:{
-        type:String,
     },
     status:{
         type:String,

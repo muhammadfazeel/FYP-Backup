@@ -59,13 +59,16 @@ exports.User_signin=(req,res,next)=>{
     .exec()
     .then(user=>{
         if(user.length<1){
+            var messages =  req.flash('error','User Not Found')
             return res.status(401).json({
-                message:'Auth Fail'
+             
             });
         }
     bcrpt.compare(req.body.password,user[0].password,(err,result)=>{
     if(err){
+        var messages =  req.flash('error','Enter Correct Password')
         return res.status(401).json({
+            error:err,
             message:'Auth Failed'
         });
     }
@@ -74,7 +77,7 @@ exports.User_signin=(req,res,next)=>{
     const token =  jwt.sign(
     {
         email:user[0],
-        userId:user[0]._id,
+        userId:user[0].id,
         uid:user[0].userId,
         hospitalid:user[0].hid,
         name:user[0].name,
@@ -95,8 +98,7 @@ exports.User_signin=(req,res,next)=>{
       }
     
     else if(user[0].role==="admin"){
-        console.log('Here We Are')
-        //console.log(user[0].hid);
+        
        HospitalData.findOne({_id:user[0].hid.toString()}).then(response=>{
         
         if(response.status==='Active'){ 
@@ -139,6 +141,21 @@ exports.User_signin=(req,res,next)=>{
                  return res.json({
                     accessToken: token,
                     redirect:'/recep/Home'
+                })
+                }else{
+                    res.json({redirect:'/login'})
+                }
+           }).catch(err=>{
+               res.json('ERERERER')
+           })
+    }
+    else if ( user[0].role==="patient"){
+        HospitalData.findOne({_id:user[0].hid.toString()}).then(response=>{
+            if(response.status==='Active'){ 
+                storage.setItem('data',token);  
+                 return res.json({
+                    accessToken: token,
+                    redirect:'/patient/Home'
                 })
                 }else{
                     res.json({redirect:'/login'})

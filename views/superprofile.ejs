@@ -1,145 +1,163 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
- 
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>Profile Update</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-     
-    <link rel="stylesheet" href="/css/style.css">
-   
-    
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
-   <style>
-        body{
-             background-image: linear-gradient(rgba(29, 212, 212, 0.664), rgba(0, 0, 0, 0.7)),url("css/img/1.jpg"),   url(img/1.jpg);
-      
-            background-size: cover;
-        }  
-         body{
-            background: rgb(38, 202, 231);
-        }
-        hr{
-            background: rgb(228, 65, 36)
-        }
-        .contact-form{
-            background:rgb(242, 244, 245);
-            color: black;
-            margin-top: 20px;
+    <link rel="stylesheet" href="/css/style.css" />
 
-          padding: 100px;
+    <style>
+      body {
+        background-image: linear-gradient(
+            rgba(29, 212, 212, 0.664),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("css/img/1.jpg"), url(img/1.jpg);
 
-            box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
-        }
-        .hidden{
-            display: none;
-            
-        }
-        .hidden2{
-            display: none;
-        }
- 
+        background-size: cover;
+      }
 
+      body {
+        background: rgb(38, 202, 231);
+      }
 
-      
-</style>
+      hr {
+        background: rgb(228, 65, 36);
+      }
 
+      .contact-form {
+        background: rgb(242, 244, 245);
+        color: black;
+        margin-top: 20px;
 
+        padding: 100px;
 
+        box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
+      }
 
+      .hidden {
+        display: none;
+      }
 
-</head>
+      .hidden2 {
+        display: none;
+      }
+    </style>
+  </head>
 
-<body>
-
-        <% include partials/supernav %> 
+  <body>
+    <% include partials/supernav %>
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
-    
-         <!-- ============================================================== -->
-        <!-- navbar -->
+
+    <!-- ============================================================== -->
+    <!-- navbar -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- wrapper  -->
+    <!-- ============================================================== -->
+    <div class="dashboard-wrapper">
+      <div class="container-fluid  dashboard-content">
         <!-- ============================================================== -->
-        
-
-       
+        <!-- pageheader -->
         <!-- ============================================================== -->
-        <!-- wrapper  -->
-        <!-- ============================================================== -->
-        <div class="dashboard-wrapper">
-            <div class="container-fluid  dashboard-content">
-                <!-- ============================================================== -->
-                <!-- pageheader -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                            <h2 class="pageheader-title">Manage Profile</h2>
-                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
-                            <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        
-                                       
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- end pageheader -->
-                <!-- ============================================================== -->
-             
-
-
-                <div class="container contact-form">
-                        <h1>Update Profile</h1>
-                        <hr>
-                          <div class="row">
-                         <div class="col-md-10">
-                           
-                    
-                         
-                         <div class="col-md-8">
-                        <div class="form-group">
-                                   <h1><%= posts.email %> </h1>
-                                   
-                               </div>
-                               <div class="form-group">
-                               <h1><%= posts.password %></h1>
-                               
-                           </div>
-
-                           <input class="btn btn-primary" type="submit" value="Apply Changes">
-                 </div>
-                         </div>
-                         
-                    
-                    
-                        </div>
-                    
-                    </div>
-                </div>
-
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="page-header">
+              <h2 class="pageheader-title">Manage Profile</h2>
+              <p class="pageheader-text">
+                Proin placerat ante duiullam scelerisque a velit ac porta, fusce
+                sit amet vestibulum mi. Morbi lobortis pulvinar quam.
+              </p>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb"></ol>
+                </nav>
+              </div>
             </div>
-           
-        
-    
+          </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end pageheader -->
+        <!-- ============================================================== -->
+
+        <div class="container contact-form">
+          <h1>Update Profile</h1>
+          <hr />
+          <div class="row">
+            <div class="col-md-10">
+                <form id="update">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label>Email</label>
+                  <Input
+                    type="email"
+                    name="email"
+                    id="emailid"
+                    value="<%= posts.email %>"
+                    class="form-control"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                    required
+                  />
+                </div>
+                
+                <div class="form-group">
+                        <label hidden>Id</label>
+                        <Input hidden
+                          type="text"
+                          name="text"
+                          id="id"
+                          value="<%= posts._id %>"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <Input
+                    type="password"
+                    name="password"
+                    id="passwordid"
+                    class="form-control"
+                    placeholder="Must Enter Your New/Old Password"
+                    required
+                  />
+                </div>
+
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >Update</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ============================================================== -->
     <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-   
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+          <script rel="javascript" type="text/javascript" src="/main.js"></script>            
+  
     <script src="/vendors/js/jquery-3.3.1.min.js"></script>
     <script src="/vendors/css/bootstrap.bundle.js"></script>
     <script src="/vendors/js/jquery.slimscroll.js"></script>
     <script src="/vendors/js/main-js.js"></script>
-
-</body>
- 
+  </body>
 </html>

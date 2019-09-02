@@ -10,12 +10,6 @@ const AppointmentSchema = new mongoose.Schema({
 		required: [true, "Date is required."],
 		min: new Date(+Date.now() - 7*24*60*60*1000),
 	},
-	time: {
-		type: Number,
-		required: [true, "Time is required."],
-		min: [480, "Too early"],
-		max: [1020, "Too late"],
-	},
 	patientid: {
 		type: mongoose.Schema.Types.ObjectId,
         ref: "Patient"
@@ -23,8 +17,19 @@ const AppointmentSchema = new mongoose.Schema({
 	doctorid:{
 		type: mongoose.Schema.Types.ObjectId,
         ref: "Doctor"
-    
+	},
+	patient:{
+		type:String,
+		require:true
+	},
+	dr:{
+		type:String,
+		require:true
+	},
+	status:{
+		type:String,
+		require:true
 	}
-}, { timestamps: true });
+});
 
 module.exports=mongoose.model('Appointments',AppointmentSchema);

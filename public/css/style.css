@@ -2079,7 +2079,10 @@ Pageheader
     width: 86%;
     background-color: #ededfa;
 }
-
+.error {
+    color: crimson;
+    margin-bottom: 1em;
+}
 .campaign-table {}
 
 .campaign-table .dropdown-toggle::after {

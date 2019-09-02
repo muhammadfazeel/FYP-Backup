@@ -5,9 +5,10 @@ const bodyparser=require('body-parser');
 const mongoose=require('mongoose');
 const path = require('path');
 const expressValidator=require('express-validator');
-const flash =require('connect-flash');
 const session=require('express-session');
 const methodOverride=require('method-override');
+const flash = require('express-flash');
+
 //var express_layout = require('express-ejs-layouts');
 
 const Recep = require('./Api/routes/recep')
@@ -19,7 +20,9 @@ const appointmentRoutes = require('./Api/routes/appointments');
 const patientRoutes = require("./Api/routes/patient");
 const adminRoutes=require('./Api/routes/admin');
 const department=require('./Api/routes/department');
-
+const bed = require('./Api/routes/bed');
+const Auth = require('./Api/middleware/check-auth');
+const logout = require('./Api/routes/logout');
 mongoose.connect(
     "mongodb://localhost/HMS",{ useNewUrlParser: true, useCreateIndex: true }
 ).then(() => {
@@ -41,36 +44,14 @@ app.use(bodyparser.urlencoded({extended:false}));
 app.use(bodyparser.json());
 app.use(helmet());
 app.use(methodOverride('_method'));
+
 //Express Session middleware
-// app.use(session({
-//     secret: 'secret',
-//     resave: false,
-//     saveUninitialized: true
-//   }));
-  //Express Messages middleware
-// app.use(require('connect-flash')());
-// app.use(function (req, res, next) {
-// res.locals.messages = require('express-messages')(req, res);
-//   next();
-// });
-//Express Validator Middleware
-// app.use(expressValidator({
-//     errorFormatter:function(param,msg,value){
-//         var namespace = param.split('.'),
-//         root = namespace.shift(),
-//         formparam = root;
-//         while(namespace.length){
-//             formparam += '[' + namespace.shift() + ']';
-//         }
-//         return{
-//             param:formparam,
-//             msg:msg,
-//             value:value
-//         };
-//     }
-// }))
-
-
+app.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true
+  }));
+  app.use(flash());
 
 //Routes
 //Index Page
@@ -82,12 +63,16 @@ app.get('/index',(req,res)=>{
 })
 //Route For Login and Signup page
 app.get('/login',(req,res)=>{
+    res.render('index');
+});
+app.get('/user/login',(req,res)=>{
     res.render('login');
 });
 app.get('/form',(req,res)=>{
     res.render('form');
 });
-
+//For Logout
+app.use('/logout',logout);
 //Routes For SuperAdmin
 app.use('/superadmin',superadminroutes);
 //Routes For Users
@@ -106,5 +91,6 @@ app.use('/admin',adminRoutes);
 app.use('/department',department);
 //Routes For Recep
 app.use('/recep',Recep);
-
+//Routes For Bed
+app.use('/bed',bed);
 module.exports=app

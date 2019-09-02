@@ -24,18 +24,16 @@ exports.deleteAppointment = (req, res, next) => {
 
 //To Add New Appointment
 exports.addAppointment = (req, res, next) => {
-  console.log('here we r')
-  Appointment.find({ date: req.body.date }, function(err, response) {
-    console.log('here');
+    Appointment.find({ date: req.body.date }, function(err, response) {
+    
     if (err) {
-      console.log('here erererer')
+      
       return res.status(402).json(err);
     }
     // else if(response.length > 2){
     //     return res.status(403).json('Doctor already has three appointments this day. Please select a different day.')
     // }
     else {
-      console.log('error here')
       Appointment.find(
         { patientid: req.body.patientid, date: req.body.date },
         function(err, response) {
@@ -56,6 +54,7 @@ exports.addAppointment = (req, res, next) => {
               },
               function(err, response) {
                 if (err) {
+                  console.log(err)
                   return res.status(402).json(err);
                 } else if (response.length > 0) {
                   return res
@@ -69,15 +68,18 @@ exports.addAppointment = (req, res, next) => {
                     patientid: req.body.patientid,
                     doctorid: req.body.doctorid,
                     date: req.body.date,
-                    time: req.body.time
+                    patient:req.body.patient,
+                    dr:req.body.dr,
+                    status:"pending"
                   });
                   appointment.save(err => {
                     if (err) {
                       console.log(err);
                       return res.status(402).json(err);
                     } else {
-                      console.log(appointment);
-                      return res.json(appointment);
+                      return res.json({appointment,
+                        redirect:'/appointment/AppList'
+                      });
                     }
                   });
                 }

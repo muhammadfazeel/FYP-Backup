@@ -6,17 +6,18 @@ const paymentSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "hospital"
     },
-    userID:{
+    Did:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Doctor" 
+    }
+    ,
+    Pid:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Patient"
     },
-    amount:{
+    total:{
         type:String,
         require:true,
     },
-    description:{
-        type:String,
-        require:true,
-        }
 });
 module.exports=mongoose.model('Payments',paymentSchema);

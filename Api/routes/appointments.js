@@ -6,7 +6,7 @@ const appointmentController=require("../controllers/appointments");
 const Patient = require('../Models/patient');
 const Doctors = require('../Models/doctor');
 
-//To Render AddAppointment By Admin
+//To Render AddAppointment page By Admin
 router.get('/AddAppointment',checkauth,async (req,res)=>{
     let result =await Patient.find({hid:req.userData.hospitalid})
     let Yes =await Doctors.find({hid:req.userData.hospitalid})

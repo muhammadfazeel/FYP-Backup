@@ -2,6 +2,7 @@ const bcrpt=require('bcrypt');
 
 const Userdata = require("../Models/user");
 const Patient = require('../Models/patient');
+const Appointment = require('../Models/appointments');
 
 
 // To Create Hospital
@@ -31,7 +32,7 @@ exports.createPatient=(req,res,next)=>{
                                 email:req.body.email,
                                 password:hash,
                                 gender:req.body.gender,
-                                blood:req.body.gender,
+                                blood:req.body.blood,
                                 age:req.body.age,
                                 address:req.body.address,
                                 phone:req.body.phone,
@@ -77,6 +78,13 @@ exports.createPatient=(req,res,next)=>{
     
 
 };
+//To Get Patients For REcep
+exports.getPatientinfo=async (req,res,next)=>{
+    let result =await Patient.find({hid:req.userData.hospitalid})
+    return  res.render('patientListRecep',{
+        posts:result
+    })
+}
 
 
 //To Get All Patients
@@ -85,6 +93,27 @@ exports.getPatient=async (req,res,next)=>{
     return  res.render('patientlistadmin',{
         posts:result
     })
+}
+//To Delete patient By Recep
+exports.delPatientRecep=async (req,res,next)=>{
+    let Hospital
+    let User
+    let App
+  try {
+    Hospital = await Patient.findById(req.params.id)
+    await Hospital.remove().then(async result=>{
+        User= await Userdata.findOne({userId:req.params.id});
+        await User.remove().then(async Ans=>{
+        App = await Appointment.find({patientid:req.params.id});
+        await App.remove()
+        })
+    })
+    res.redirect('/patient/patientListRecep')
+  } catch {
+    
+      res.redirect('/patient/patientListRecep')
+  }
+
 }
 //To Delete patient
 exports.delPatient=async (req,res,next)=>{

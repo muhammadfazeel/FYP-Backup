@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Add Recep</title>
+    <title>Edit</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
@@ -87,7 +87,7 @@
       <div class="container-fluid  dashboard-content">
           <div class="page-breadcrumb">
               <nav aria-label="breadcrumb">
-                      <td><a href="/doctor/addSchedule" class="btn btn-danger btn-rounded btn-sm my-0">Add Schedule</a></td> 
+                       
               </nav>
         <div class="container contact-form">
           
@@ -119,6 +119,7 @@
                       value="<%= posts.email %>"
                       class="form-control"
                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                      required
                     />
                   </div>
                   <div>
@@ -136,13 +137,13 @@
                     <Input
                       type="text"
                       name="phone"
-                      id="phoneid"
-                      value="<%= posts.phone %>"
+                      id="addressid"
+                      value="<%= posts.address %>"
                       class="form-control"
                       placeholder="03XX-XXXXXXX"
+                      pattern="^\d{4}-\d{7}$" required
                     />
                   </div>
-
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary" id="btn">
                         Update

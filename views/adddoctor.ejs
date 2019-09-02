@@ -120,7 +120,7 @@
 
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <Input type="email" name="email" id="emailid" class="form-control">
+                                    <Input type="email" name="email" id="emailid" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                                 </div>
                                 <div>
                                     <label> Password</label>
@@ -139,7 +139,8 @@
 
                                 <div class="form-group">
                                     <label>Phone</label>
-                                    <Input type="text" name="phone" id="phoneid" class="form-control">
+                                    <Input type="tel" name="phone" placeholder="03XX-XXXXXXX"
+                                    pattern="^\d{4}-\d{7}$" required id="phoneid" class="form-control">
                                 </div>
 
                                 <div class="form-group">

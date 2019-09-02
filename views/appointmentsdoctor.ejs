@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Appoinments</title>
+    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
@@ -25,7 +25,7 @@
       }
 
       body {
-        background: rgb(38, 202, 231);
+        background: rgb(247, 247, 247);
       }
 
       hr {
@@ -41,142 +41,134 @@
 
         box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
       }
-
-      .hidden {
-        display: none;
-      }
-
-      .hidden2 {
-        display: none;
-      }
     </style>
-    <script>
-      function showHide() {
-        var checkbox = document.getElementById("chk");
-        var hiddeninputs = document.getElementsByClassName("hidden");
-        for (var i = 0; i != hiddeninputs.length; i++) {
-          if (checkbox.checked) {
-            hiddeninputs[i].style.display = "block";
-          } else {
-            hiddeninputs[i].style.display = "none";
-          }
-        }
-      }
-
-      function showHidee() {
-        var checkbox = document.getElementById("chkk");
-        var hiddeninputs = document.getElementsByClassName("hidden2");
-        for (var i = 0; i != hiddeninputs.length; i++) {
-          if (checkbox.checked) {
-            hiddeninputs[i].style.display = "block";
-          } else {
-            hiddeninputs[i].style.display = "none";
-          }
-        }
-      }
-    </script>
   </head>
 
   <body>
     <% include partials/doctornav %>
+
     <!-- ============================================================== -->
-    <!-- navbar -->
+    <!--  main wrapper -->
     <!-- ============================================================== -->
+
     <div class="dashboard-wrapper">
       <div class="container-fluid  dashboard-content">
         <!-- ============================================================== -->
-        <!-- end pageheader -->
+        <!-- pageheader -->
         <!-- ============================================================== -->
-
-        <div class="container contact-form">
-          <h1>Book Appointment</h1>
-          <hr />
-          <div class="row">
-            <div class="col-md-10">
-              <div class="col-md-8">
-                <input
-                  type="checkbox"
-                  name="chkbox2"
-                  id="chkk"
-                  onclick="showHidee()"
-                />
-                <label for="chk">Select Patient</label>
-                <br />
-                <div class="hidden2">
-                  <label> Select Patient</label>
-                  <select name="language" class="form-control">
-                    <option value="friends" selected>Urdu</option>
-                    <option value="search">English</option>
-                    <option value="ad">Arabic</option>
-                    <option value="other">French</option>
-                  </select>
-                </div>
-                <input
-                  type="checkbox"
-                  name="chkbox"
-                  id="chk"
-                  onclick="showHide()"
-                />
-                <label for="chk">Add New Patient</label>
-                <div class="hidden">
-                  <div class="form-group">
-                    <label>patient name</label>
-                    <Input type="text" name="title" class="form-control" />
-                  </div>
-
-                  <div class="form-group">
-                    <label>patient phone</label>
-                    <Input type="tel" name="phone" class="form-control" />
-                  </div>
-                  <div class="form-group">
-                    <label>patient Adress</label>
-                    <Input type="text" name="adress" class="form-control" />
-                  </div>
-                </div>
-                <div>
-                  <label> Specilization</label>
-                  <select name="language" class="form-control">
-                    <option value="friends" selected>1</option>
-                    <option value="search">2</option>
-                    <option value="ad">3</option>
-                    <option value="other">4</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label> Doctors</label>
-                  <select name="language" class="form-control">
-                    <option value="dr1" selected>1</option>
-                    <option value="dr2">2</option>
-                    <option value="dr3">3</option>
-                    <option value="dr4">4</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Date</label>
-                  <input type="date" name="bday" class="form-control" />
-                </div>
-
-                <div>
-                  <label> Appoinment status</label>
-                  <select name="language" class="form-control">
-                    <option value="friends" selected>confirmed</option>
-                    <option value="search">pending</option>
-                  </select>
-                  <br />
-                  <div class="form-group">
-                    <button class="btn btn-primary btn-block">Send</button>
-                  </div>
-                </div>
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="page-header">
+              <h2 class="pageheader-title">All Appointment</h2>
+              <p class="pageheader-text">
+                Proin placerat ante duiullam scelerisque a velit ac porta, fusce
+                sit amet vestibulum mi. Morbi lobortis pulvinar quam.
+              </p>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb"></ol>
+                </nav>
+              </div>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                
+                </nav>
               </div>
             </div>
           </div>
         </div>
+        <!-- ============================================================== -->
+        <!-- basic table  -->
+        <!-- ============================================================== -->
+        <table class="table table-striped table-bordered first">
+          <thead>
+            <tr>
+              <th>
+                Patient Email
+              </th>
+              <th>Doctor</th>
+              <th>Date</th>
+              <th>Delete</th>
+              <th>Option</th>
+              <th>Allotment</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <% for(let i = 0; i < posts.length; i++) { %>
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="table-responsive">
+                <tbody>
+                  <tr>
+                    <td><%= posts[i].patient %></td>
+                    <td ><%= posts[i].dr %></td>
+                    <td><%= posts[i].date %></td>
+                    <td>
+                      <form
+                        method="POST"
+                        action="/doctor/Appointment/<%= posts[i]._id %>?_method=DELETE"
+                      >
+                        <button
+                          type="submit"
+                          class="btn-danger btn-rounded btn-sm my-0 btn btn-outline-primary"
+                          onclick="spjs.contentApproval.toggleApprovelStatus(0);return false;"
+                        >
+                          Delete
+                        </button>
+                      </form>
+                    </td><td>
+                        <form
+                        id="Prescription"
+                        >
+                        <input hidden id="ptemail"value="<%= posts[i].patient %>" />
+                        <input hidden id="drname"value="<%= posts[i].dr %>" />
+                        <input hidden id="ptid"value="<%= posts[i].patientid %>"/>
+                        <input hidden id="drid"value="<%= posts[i].doctorid %>"/>
+                          <button
+                            type="submit"
+                            class="btn-danger btn-rounded btn-sm my-0 btn btn-outline-primary"
+                            
+                          >
+                            Add Prescription
+                          </button>
+                        </form>
+                      </td>
+                      <td>
+                        
+                         <a href="/doctor/AllotBed" class="btn-danger btn-rounded btn-sm my-0 btn btn-outline-primary">AllotBed</a>
+                          
+                          
+                      </td>
+                      <td>
+                          <form
+                            method="POST"
+                            onclick="return confirm('Are you sure?');"
+                            action="/doctor/Appointment/status/<%= posts[i]._id %>?_method=PUT"
+                          >
+                            <button
+                              type="submit"
+                              onclick="return confirm('Are you sure?');"
+                              class="btn-danger btn-rounded btn-sm my-0 btn btn-outline-primary"
+                              onclick="spjs.contentApproval.toggleApprovelStatus(0);return false;"
+                            >
+                              Done
+                            </button>
+                          </form>
+                        </td>
+                  </tr>
+                </tbody>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </table>
       </div>
-      <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
-    <!-- end main wrapper -->
+    <!-- Script -->
+    <script rel="javascript" type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script rel="javascript" type="text/javascript" src="/main.js"></script>
+    <!-- ============================================================== -->
     <!-- ============================================================== -->
   </body>
 </html>

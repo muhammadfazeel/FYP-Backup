@@ -36,7 +36,7 @@
 
     <!--Navbar -->
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
-        <a class="navbar-brand" href="/index" style="color: rgb(6, 4, 75); font-weight: bold; ">Home</a>
+        <a class="navbar-brand" href="/index" style="color: rgb(6, 4, 75); font-weight: bold; "></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
             aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,7 +47,7 @@
     </nav>
     <!--/.Navbar -->
     <div class="container contact-form">
-        <h1>contact form </h1>
+        <h1>Create Accout For Hospital </h1>
         <hr>
         <div class="row">
             <div class="col-md-6">
@@ -68,7 +68,8 @@
 
                     <div class="form-group">
                         <label>Email</label>
-                        <Input type="text" name="email" id="emailid" class="form-control" required>
+                        <Input type="text" name="email" id="emailid" class="form-control"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                        required >
                     </div>
 
                     <div class="form-group">
@@ -83,14 +84,20 @@
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <Input type="text" name="phone" id="phoneid" placeholder="034X-XXXXXXX" class="form-control"
-                            required>
+                        <Input type="text" name="phone" id="phoneid"  class="form-control" placeholder="03XX-XXXXXXX"
+                        pattern="^\d{4}-\d{7}$" required>
+                            
                     </div>
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block" id="btn">Create Hospital</button>
                     </div>
-
+                    <h7>Already Have Hospital Please Login</h7>
+                    <div class="form-group">
+                        
+                            <a href="/login" class="btn btn-primary btn-block">Login</a>
+                        </div>
+    
                 </div>
             </form>
         </div>
