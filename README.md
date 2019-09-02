@@ -8,3 +8,5 @@ after installation Run nodemon server.js
 
 its my fisrt ever project which may has alots of problems 
 :P
+
+Developed By Jamal Tanoli And Muhammad Fazeel 
