@@ -5,6 +5,8 @@ let Dr;
 const express = require("express");
 const router = express.Router();
 
+const bcrpt = require('bcrypt')
+
 const checkAuth = require("../middleware/check-auth");
 const doctorcontroller = require("../controllers/doctor");
 const DoctorSchema = require("../Models/doctor");
@@ -283,4 +285,45 @@ router.delete('/Discharge/:id',checkAuth,async (req,res,next)=>{
   }catch{
 console.log('Error Here');
   }
+});
+
+//To Update Doctor
+router.post('/update',checkAuth,(req,res)=>{
+  bcrpt.hash(req.body.password,10,(err,hash)=>{
+      if(err){
+          return res.status(500).json({
+              error: err
+          });
+      }
+          else{
+  userData.findOneAndUpdate({
+      _id:req.body.id
+    },{$set:{
+      name:req.body.name,
+      email:req.body.email,
+      password:hash,
+      phone:req.body.phone
+    }},{new:true})
+    .then()
+    .catch();
+DoctorSchema.findOneAndUpdate({
+  _id:req.body.userId
+},{$set:{
+  name:req.body.name,
+  email:req.body.email,
+  password:hash,
+  phone:req.body.phone
+}},{new:true})
+.then()
+.catch();
+return  res.json({
+  status:'success',
+  
+  redirect:'/doctor/Profile',
+
+});
+
+}
+
+  })
 })

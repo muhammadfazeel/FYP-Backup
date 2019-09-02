@@ -458,3 +458,153 @@ $(function(){
         return false;
     })
 });
+//Update Doctor Profile
+$(document).ready(function(){
+    $('#DoctorUpdate').submit(function(){
+        var id= $('#id').val();
+        var userId= $('#userid').val();
+        var mytitle = $('#nameid').val();
+        var myemail = $('#emailid').val();
+        var mypassword=$('#passwordid').val();
+        var myaddress = $('#addressid').val();
+        var myphone = $('#phoneid').val();
+        $.ajax({
+            global: false,
+            type: "post",
+            url:'/doctor/update',
+            dataType: "json",
+            data:{
+                id:id,
+                userId:userId,
+                name:mytitle,
+                email:myemail,
+                password:mypassword,
+                address:myaddress,
+                phone:myphone
+                
+            },
+            
+            success:function(res){
+                if ( res.status === 'success'){
+                    window.location = res.redirect
+                } 
+            },
+            error:function(err){
+                alert("Fail");
+            }
+        });
+        return false;
+    })
+})
+//Update Admin Profile
+$(document).ready(function(){
+    $('#UpdateAdmin').submit(function(){
+        var id= $('#id').val();
+        var userId= $('#userid').val();
+        var mytitle = $('#nameid').val();
+        var myemail = $('#emailid').val();
+        var mypassword=$('#passwordid').val();
+        var myphone = $('#phoneid').val();
+        $.ajax({
+            global: false,
+            type: "post",
+            url:'/admin/update',
+            dataType: "json",
+            data:{
+                id:id,
+                userId:userId,
+                name:mytitle,
+                email:myemail,
+                password:mypassword,
+                phone:myphone
+                
+            },
+            
+            success:function(res){
+                if ( res.status === 'success'){
+                    window.location = res.redirect
+                } 
+            },
+            error:function(err){
+                alert("Fail");
+            }
+        });
+        return false;
+    })
+})
+//Update Receptionist Profile
+$(document).ready(function(){
+    $('#RecepUpdate').submit(function(){
+        var id= $('#id').val();
+        var userId= $('#userid').val();
+        var mytitle = $('#nameid').val();
+        var myemail = $('#emailid').val();
+        var mypassword=$('#passwordid').val();
+        var myaddress = $('#addressid').val();
+        var myphone = $('#phoneid').val();
+        $.ajax({
+            global: false,
+            type: "post",
+            url:'/recep/update',
+            dataType: "json",
+            data:{
+                id:id,
+                userId:userId,
+                name:mytitle,
+                email:myemail,
+                password:mypassword,
+                address:myaddress,
+                phone:myphone
+                
+            },
+            
+            success:function(res){
+                if ( res.status === 'success'){
+                    window.location = res.redirect
+                } 
+            },
+            error:function(err){
+                alert("Fail");
+            }
+        });
+        return false;
+    })
+})
+//Update Patient Profile
+$(document).ready(function(){
+    $('#UpdatePatient').submit(function(){
+        var id= $('#id').val();
+        var userId= $('#userid').val();
+        var mytitle = $('#nameid').val();
+        var myemail = $('#emailid').val();
+        var mypassword=$('#passwordid').val();
+        var myaddress = $('#addressid').val();
+        var myphone = $('#phoneid').val();
+        $.ajax({
+            global: false,
+            type: "post",
+            url:'/patient/update',
+            dataType: "json",
+            data:{
+                id:id,
+                userId:userId,
+                name:mytitle,
+                email:myemail,
+                password:mypassword,
+                address:myaddress,
+                phone:myphone
+                
+            },
+            
+            success:function(res){
+                if ( res.status === 'success'){
+                    window.location = res.redirect
+                } 
+            },
+            error:function(err){
+                alert("Fail");
+            }
+        });
+        return false;
+    })
+})

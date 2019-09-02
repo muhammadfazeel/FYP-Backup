@@ -10,7 +10,8 @@ const AppointmentData = require('../Models/appointments');
 const user = require('../Models/user');
 const Hospital = require('../Models/create-hospital');
 const payment = require('../Models/payment');
-
+const bcrpt = require('bcrypt');
+const RecepModel = require('../Models/Recep');
 //To Get Receptionist Page
 router.get('/Home',checkAuth,(req,res)=>{
     res.render('RecepHome');
@@ -105,4 +106,44 @@ router.post('/addpayment',checkAuth,(req,res)=>{
         }
      
 })
+//To Update Profile
+router.post('/update',checkAuth,(req,res)=>{
+    bcrpt.hash(req.body.password,10,(err,hash)=>{
+        if(err){
+            return res.status(500).json({
+                error: err
+            });
+        }
+            else{
+    user.findOneAndUpdate({
+        _id:req.body.id
+      },{$set:{
+        name:req.body.name,
+        email:req.body.email,
+        password:hash,
+        phone:req.body.phone
+      }},{new:true})
+      .then()
+      .catch();
+  RecepModel.findOneAndUpdate({
+    _id:req.body.userId
+  },{$set:{
+    name:req.body.name,
+    email:req.body.email,
+    password:hash,
+    phone:req.body.phone
+  }},{new:true})
+  .then()
+  .catch();
+  return  res.json({
+    status:'success',
+    
+    redirect:'/recep/Profile',
+  
+  });
+  
+  }
+  
+    })
+  })
 module.exports=router;

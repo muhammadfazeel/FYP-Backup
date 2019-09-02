@@ -94,15 +94,37 @@
           <h1>Edit Profile</h1>
           <hr />
           
-          <form id="Recep">
+          <form id="RecepUpdate">
             <div class="row">
               <div class="col-md-10">
                 <div class="col-md-8">
+                    <div class="form-group">
+                        <label hidden>id</label>
+                        <Input
+                          type="text"
+                          hidden
+                          name="name"
+                          id="id"
+                          value="<%= posts._id %>"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="form-group">
+                          <label hidden>userid</label>
+                          <Input
+                            type="text"
+                            hidden
+                            name="name"
+                            id="userid"
+                            value="<%= posts.userId %>"
+                            class="form-control"
+                          />
+                        </div>
                   <div class="form-group">
                     <label>Name</label>
                     <Input
                       type="text"
-                      type="text"
+                      
                       name="name"
                       id="nameid"
                       value="<%= posts.name %>"
@@ -128,7 +150,7 @@
                       type="password"
                       name="password"
                       id="passwordid"
-                      value=""
+                      placeholder="Please Must Enter Your Password old/new" required
                       class="form-control"
                     />
                   </div>
@@ -137,8 +159,8 @@
                     <Input
                       type="text"
                       name="phone"
-                      id="addressid"
-                      value="<%= posts.address %>"
+                      id="phoneid"
+                      value="<%= posts.phone %>"
                       class="form-control"
                       placeholder="03XX-XXXXXXX"
                       pattern="^\d{4}-\d{7}$" required
