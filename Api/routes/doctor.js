@@ -23,6 +23,9 @@ const PatientHistory = require('../Models/patientHistory');
 const userData = require('../Models/user');
 const LabData = require('../Models/lab');
 const LabTestData = require('../Models/labtest');
+const LabReports = require('../Models/labreport');
+
+
 //To Get Doctor Main Page
 router.get("/Home", checkAuth, (req, res) => {
   res.render("doctor");
@@ -98,7 +101,6 @@ router.get("/Profile", checkAuth, async (req, res) => {
   let DoctorData;
   try{ 
  DoctorData = await userData.findOne({ _id: req.userData.userId });
-  console.log(DoctorData);
   return res.render("Doctor-Profile", {
     posts: DoctorData
   });
@@ -276,7 +278,8 @@ router.post('/AddLabTest',(req, res, next) => {
          doctorid:req.body.doctorid,
          labid:req.body.labid,
          test:req.body.test,
-         details:req.body.details
+         details:req.body.details,
+         status:"pending"
        });
        History
          .save()
@@ -386,6 +389,33 @@ return  res.json({
 
   })
 })
+//To Get Reports Which Are Done By Lab Assistant
+router.get('/Reports',checkAuth,async (req,res)=>{
+let Reports
+Reports= await LabReports.find({doctorid:req.userData.uid,Drstatus:"pending"})
+res.render('PatientReportsDoctor',{
+  posts:Reports
+})
+})
+//Change Status Of Receved Report
 
-
+//To Change Status of Test Report
+router.put('/test/status/:id',(req,res)=>{
+  var id = req.params.id;
+  LabReports.findOne({_id:id},function(err,foundObject){
+    if(err){
+      res.status(500).send();
+    }else {
+      if(!foundObject){
+        res.status(404).send();
+      }
+      else{
+        foundObject.Drstatus="done"
+      }
+      foundObject.save();
+    }
+    res.redirect('/doctor/Reports')
+  })
+  })
+  
 module.exports = router;

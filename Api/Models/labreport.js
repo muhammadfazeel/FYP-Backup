@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const LabTestSchema = mongoose.Schema({
+const LabTestReportSchema = mongoose.Schema({
     
     hid:{
         type: mongoose.Schema.Types.ObjectId,
@@ -17,19 +17,19 @@ const LabTestSchema = mongoose.Schema({
     patientid:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "patient"
-    },
-    test:{
+    },test:{
+type:String
+    }
+,    result:{
         type:String,
         require:true,
     },
     details:{
         type:String
-    },doctorname:{
-        type:String
-    },patientname:{
-        type:String
     },status:{
+        type:String
+    },Drstatus:{
         type:String
     }
 });
-module.exports=mongoose.model('Lab Test Data',LabTestSchema);
+module.exports=mongoose.model('Lab Test Report',LabTestReportSchema);

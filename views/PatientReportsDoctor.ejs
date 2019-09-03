@@ -84,15 +84,14 @@
           <thead>
             <tr>
               <th>
-                Patient Email
+                Patient Name
               </th>
               <th>Doctor</th>
-              <th>Date</th>
-              <th>Delete</th>
-              <th>Prescription</th>
-              <th>Lab Test</th>
-              <th>Allotment</th>
-              <th>Status</th>
+              <th>Test</th>
+              <th>Result</th>
+              <th>Add Prescription</th>
+              <th>change Status</th>
+              <!-- <th>Done</th> -->
             </tr>
           </thead>
           <% for(let i = 0; i < posts.length; i++) { %>
@@ -101,68 +100,32 @@
               <div class="table-responsive">
                 <tbody>
                   <tr>
-                    <td><%= posts[i].patient %></td>
-                    <td ><%= posts[i].dr %></td>
-                    <td><%= posts[i].date %></td>
+                    <td><%= posts[i].patientid %></td>
+                    <td ><%= posts[i].doctorid%></td>
+                    <td><%= posts[i].test %></td>
+                    <td><%= posts[i].result %></td>
                     <td>
-                      <form
-                        method="POST"
-                        action="/doctor/Appointment/<%= posts[i]._id %>?_method=DELETE"
-                      >
-                        <button
-                          type="submit"
-                          onclick="return confirm('Are you sure you want to delete?');"
-                          class="btn-danger btn-rounded btn-sm my-0 btn btn-outline-primary"
-                          onclick="spjs.contentApproval.toggleApprovelStatus(0);return false;"
-                        >
-                          Delete
-                        </button>
-                      </form>
-                    </td><td>
-                        <form
-                        id="Prescription"
-                        >
-                        <input hidden id="ptemail"value="<%= posts[i].patient %>" />
-                        <input hidden id="drname"value="<%= posts[i].dr %>" />
-                        <input hidden id="ptid"value="<%= posts[i].patientid %>"/>
-                        <input hidden id="drid"value="<%= posts[i].doctorid %>"/>
-                          <button
-                            type="submit"
-                            class="btn-danger btn-rounded btn-sm my-0 btn btn-outline-primary"
-                            
-                          >
-                            Add Prescription
-                          </button>
-                        </form>
-                      </td>
-                      <td>
-                          <form
-                          id="labtest"
-                          >
-                          <input hidden id="ptemail"value="<%= posts[i].patient %>" />
-                          <input hidden id="drname"value="<%= posts[i].dr %>" />
-                          <input hidden id="ptid"value="<%= posts[i].patientid %>"/>
-                          <input hidden id="drid"value="<%= posts[i].doctorid %>"/>
-                            <button
-                              type="submit"
-                              class="btn-danger btn-rounded btn-sm my-0 btn btn-outline-primary"
-                              
+                            <form
+                            id="Prescription"
                             >
-                            LabTest
-                            </button>
-                          </form>
-                        </td>
-                      <td>
-                        
-                         <a href="/doctor/AllotBed" class="btn-danger btn-rounded btn-sm my-0 btn btn-outline-primary">AllotBed</a>
-                          
-                          
-                      </td>
-                      <td>
+                            <input hidden id="ptemail"value="<%= posts[i].patient %>" />
+                            <input hidden id="drname"value="<%= posts[i].dr %>" />
+                            <input hidden id="ptid"value="<%= posts[i].patientid %>"/>
+                            <input hidden id="drid"value="<%= posts[i].doctorid %>"/>
+                              <button
+                                type="submit"
+                                class="btn-danger btn-rounded btn-sm my-0 btn btn-outline-primary"
+                                
+                              >
+                                Add Prescription
+                              </button>
+                            </form>
+                          </td>  
+                          <td>
                           <form
                             method="POST"
                             onclick="return confirm('Are you sure?');"
-                            action="/doctor/Appointment/status/<%= posts[i]._id %>?_method=PUT"
+                            action="/doctor/test/status/<%= posts[i]._id %>?_method=PUT"
                           >
                             <button
                               type="submit"
