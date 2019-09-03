@@ -7,6 +7,7 @@ const auth= require('../middleware/check-auth');
 const adminData = require('../Models/create-hospital');
 const bedData = require('../Models/beds');
 const userData = require('../Models/user');
+const LabData = require('../Models/lab');
 
 //Routes For To Get Admin Page
 router.get('/Home',auth,(req,res)=>{
@@ -96,5 +97,71 @@ router.post('/update',auth,(req,res)=>{
   
     })
   })
+//Admin Add Lab Page
+router.get('/addlab',auth,(req,res)=>{
+  res.render('addLab');
+})
+//To Create Lab
+router.post('/lab',auth,(req,res,next)=>{
+  userData.find({
+    email: req.body.email
+  })
+    .exec()
+    .then(user => {
+      if (user.length >= 1) {
+        return res.status(409).json({
+          message: "Email Already Exists"
+        });
+      } else {
+        bcrpt.hash(req.body.password, 10, (err, hash) => {
+          if (err) {
+            return res.status(500).json({
+              error: err
+            });
+          } else {
+            const recept = new LabData({
+              hid: req.userData.hospitalid,
+              name: req.body.name,
+              email: req.body.email,
+              password: hash,
+              phone:req.body.phone
+            });
+            recept.save()
+              .then(result => {
+                const User = new userData({
+                  hid: req.userData.hospitalid,
+                  userId: result._id,
+                  name: req.body.name,
+                  email: req.body.email,
+                  password: hash,
+                  phone: req.body.phone,
+                  role: "lab"
+                });
+                User.save()
+                  .then()
+                  .catch(err => {
+                    console.log(err);
+                  });
+                return res.json({
+                  status: "success",
+                  redirect: "/admin/alllab"
+                });
+              })
+              .catch(err => {
+                console.log(err);
+              });
+          }
+        });
+      }
+    });
+  
+  })
 
+  // To Get All Lab Assistant
+  router.get('/alllab',auth,async (req,res,next)=>{
+    let result =await LabData.find({hid:req.userData.hospitalid})
+    return  res.render('alllabadmin',{
+        posts:result
+    })
+  })
 module.exports=router;

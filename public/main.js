@@ -608,3 +608,104 @@ $(document).ready(function(){
         return false;
     })
 })
+
+//To Create Lab
+$(document).ready(function(){
+    $('#Lab').submit(function(){
+        var mytitle = $('#nameid').val();
+        var myemail = $('#emailid').val();
+        var mypassword=$('#passwordid').val();
+        var myphone = $('#phoneid').val();
+        $.ajax({
+            global: false,
+            type: "post",
+            url:'/admin/lab',
+            dataType: "json",
+            data:{
+                name:mytitle,
+                email:myemail,
+                password:mypassword,
+                phone:myphone
+            },
+            
+            success:function(res){
+                alert("Lab created successfuly ");
+                if ( res.status === 'success'){
+                    window.location = res.redirect
+                } 
+            },
+            error:function(err){
+                alert("Email Already Exist");
+            }
+        });
+        return false;
+    })
+})
+//For Lab Test 
+$(function(){
+    $('#labtest').submit(function(){
+        var ptid = $('#ptid').val();
+        var ptemail = $('#ptemail').val();
+        var drname=$('#drname').val();
+        var drid = $('#drid').val();
+        console.log(ptid);
+        console.log(ptemail);
+        console.log(drname);
+        $.ajax({
+            type: "post",
+            url:'/doctor/LabTest?_method=get',
+            data:{
+                patientid:ptid,
+                patient:ptemail,
+                doctorid:drid,
+                dr:drname
+            },success:function(res){
+                
+                    window.location=res.redirect
+                 
+            },
+            error:function(err){
+                alert(" Something Wrong");
+            }
+        });
+        return false;
+    })
+});
+
+//To Create Lab test And Save to DataBase for Lab assistant
+//To Create prescription and save to database for history
+$(function(){
+    $('#Test').submit(function(){
+        var hospitalid = $('#hid').val();
+        var labid = $('#labid').val();
+        var ptname = $('#ptname').val();
+        var ptid = $('#ptid').val();
+        var drname=$('#drname').val();
+        var drid = $('#drid').val();
+        var test = $('#nameid').val();
+        var detail = $('#detailid').val();
+        
+        $.ajax({
+            type: "post",
+            url:'/doctor/AddLabTest',
+            data:{
+                hid:hospitalid,
+                patientid:ptid,
+                doctorid:drid,
+                labid:labid,
+                doctorname:drname,
+                patientname:ptname,
+                test:test,
+                details:detail
+            },success:function(res){
+                alert("Saved");
+                    window.location=res.redirect
+                 
+            },
+            error:function(err){
+                alert(" Something Wrong");
+            }
+        });
+        return false;
+    })
+});

@@ -113,10 +113,7 @@ exports.User_signin=(req,res,next)=>{
             }
        }).catch(err=>{
            res.json('ERERERER')
-       })
-   
-        
-        
+       })   
     }
     else if(user[0].role==="doctor"){
         
@@ -156,6 +153,21 @@ exports.User_signin=(req,res,next)=>{
                  return res.json({
                     accessToken: token,
                     redirect:'/patient/Home'
+                })
+                }else{
+                    res.json({redirect:'/login'})
+                }
+           }).catch(err=>{
+               res.json('ERERERER')
+           })
+    }
+    else if ( user[0].role==="lab"){
+        HospitalData.findOne({_id:user[0].hid.toString()}).then(response=>{
+            if(response.status==='Active'){ 
+                storage.setItem('data',token);  
+                 return res.json({
+                    accessToken: token,
+                    redirect:'/lab/Home'
                 })
                 }else{
                     res.json({redirect:'/login'})

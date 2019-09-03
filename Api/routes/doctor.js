@@ -1,6 +1,9 @@
 let ApPt;
 let ptData;
 let Dr;
+let AppointmentPatient;
+let patient_Data;
+let Dr_Data;
 
 const express = require("express");
 const router = express.Router();
@@ -18,7 +21,8 @@ const AllotedBed = require("../Models/alloted-beds");
 const HospitalSchema = require("../Models/create-hospital");
 const PatientHistory = require('../Models/patientHistory');
 const userData = require('../Models/user');
-
+const LabData = require('../Models/lab');
+const LabTestData = require('../Models/labtest');
 //To Get Doctor Main Page
 router.get("/Home", checkAuth, (req, res) => {
   res.render("doctor");
@@ -60,6 +64,35 @@ router.get("/Presspage", checkAuth, async (req, res) => {
     pst: Dr
   });
 });
+//LabTest
+router.get("/LabTest", checkAuth, async (req, res) => {
+  var BB = req.body;
+
+  AppointmentPatient = await AppointmentData.findOne({ patientid: req.body.patientid });
+
+  patient_Data = await Patient.findOne({ _id: req.body.patientid });
+
+  Dr_Data = await DoctorSchema.findOne({ _id: req.body.doctorid });
+
+  return res.json({
+    redirect: "/doctor/labpage"
+  });
+});
+//Lab test Page
+router.get("/labpage", checkAuth, async (req, res) => {
+  let HospitalData = await HospitalSchema.findOne({
+    _id: req.userData.hospitalid
+  });
+  let LabAssistant = await LabData.find({hid:req.userData.hospitalid});
+  res.render("presc", {
+    Hospital: HospitalData,
+    post: AppointmentPatient,
+    posts: patient_Data,
+    pst: Dr_Data,
+    lab:LabAssistant
+  });
+});
+
 //Doctor Profile
 router.get("/Profile", checkAuth, async (req, res) => {
   let DoctorData;
@@ -146,7 +179,7 @@ router.get("/AllotBed", checkAuth, async (req, res) => {
     pst: _Bed
   });
 });
-module.exports = router;
+
 
 
 //To Allot Bed To Patient
@@ -232,6 +265,32 @@ router.post('/MedHistory',(req, res, next) => {
         });
       }
     });
+//
+router.post('/AddLabTest',(req, res, next) => {
+  {
+     const History = new LabTestData({
+         hid: req.body.hid,
+         patientname: req.body.patientname,
+         doctorname:req.body.doctorname,
+         patientid: req.body.patientid,
+         doctorid:req.body.doctorid,
+         labid:req.body.labid,
+         test:req.body.test,
+         details:req.body.details
+       });
+       History
+         .save()
+         .then()
+         .catch(err => {
+           console.log(err);
+         });
+       return res.json({
+         status: "success",
+
+         redirect: "/doctor/Appointment"
+       });
+     }
+   });
 
 //To Delete APpoitment
 router.delete('/Appointment/:id',checkAuth,doctorcontroller.deleteReceptApp);
@@ -327,3 +386,6 @@ return  res.json({
 
   })
 })
+
+
+module.exports = router;

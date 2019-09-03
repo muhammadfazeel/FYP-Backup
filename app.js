@@ -10,8 +10,8 @@ const methodOverride=require('method-override');
 const flash = require('express-flash');
 
 //var express_layout = require('express-ejs-layouts');
-
-const Recep = require('./Api/routes/recep')
+const Lab = require('./Api/routes/lab');
+const Recep = require('./Api/routes/recep');
 const userRoutes=require('./Api/routes/user');
 const hospitalroutes=require("./Api/routes/create-hospital");
 const superadminroutes=require("./Api/routes/superadmin");
@@ -93,4 +93,6 @@ app.use('/department',department);
 app.use('/recep',Recep);
 //Routes For Bed
 app.use('/bed',bed);
+//For Lab
+app.use('/lab',Lab)
 module.exports=app
