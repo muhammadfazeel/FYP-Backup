@@ -144,6 +144,10 @@
           
         </style>
     </head>
+    <div class="dashboard-wrapper">
+        <div class="container-fluid  dashboard-content">
+    <div class="row">
+        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
     <body>
         
         <from id="payment" class="container">
@@ -190,16 +194,16 @@
         <table class="inventory">
           <thead>
             <tr>
-              <th><span contenteditable>Item/Doctor Fee</span></th>
+              <th><span contenteditable>Invoice</span></th>
               <th><span contenteditable>Description</span></th>
-              <th><span contenteditable>Rate</span></th>
-              <th><span contenteditable>Quantity</span></th>
-              <th><span contenteditable>Price</span></th>
+              <th><span contenteditable>Doctor Fee</span></th>
+              <th><span contenteditable>Expenditure</span></th>
+              <th><span contenteditable>Total</span></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><a class="cut">-</a><span contenteditable></span></td>
+              <td><a class="cut">-</a><span contenteditable>Invoive</span></td>
               <td><span contenteditable></span></td>
               <td><span data-prefix>Rs</span><span contenteditable></span></td>
               <td><span contenteditable></span></td>
@@ -362,7 +366,7 @@
               cells = a[i].querySelectorAll('span:last-child');
           
               // set price as cell[2] * cell[3]
-              price = parseFloatHTML(cells[2]) * parseFloatHTML(cells[3]);
+              price = parseFloatHTML(cells[2]) + parseFloatHTML(cells[3]);
           
               // add price to total
               total += price;
@@ -484,5 +488,11 @@
           src="https://code.jquery.com/jquery-3.2.1.min.js"
         ></script>
         <script rel="javascript" type="text/javascript" src="/main.js"></script>
+        
+
+        </div>
+        </div>
+      </div>
+    </div>
     </body>
   </html>

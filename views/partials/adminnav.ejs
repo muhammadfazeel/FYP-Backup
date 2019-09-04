@@ -9,14 +9,27 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+    <style>
+            .logo {
+      height: 50px;
+      width: 100px;
+      float: left;
+      margin-left: 3pc;
+      margin-top: 10px;
+    }
+    .navbar{
+        background-color: #008080 !important;
+    }
+        </style>
 </head>
 
 <body>
     <!-- ============================================================== -->
     <div class="dashboard-main-wrapper">
-        <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-info fixed-top">
-                <a class="navbar-brand" href="#">Multi Hospital System</a>
+        <div class="dashboard-header" id="navbar1" >
+            <nav class="navbar navbar-expand-lg bg-info darken-3 fixed-top">
+                    <img src="/Resources/img/hh2.png" alt="logos" class="logo">
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -25,14 +38,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
                         <li class="nav-item active ">
-                            <a class="nav-link" href="/index">
-                                <h3>Home</h3>
-                            </a>
+                           
                         </li>
                     </ul>
                     <li class="nav-item dropdown nav-user">
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"><img src="/tm.png" alt=""
+                            aria-haspopup="true" aria-expanded="false"><img src="/Resources/img/pp.png" alt=""
                                 class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                             aria-labelledby="navbarDropdownMenuLink2">
@@ -66,8 +77,7 @@
                                 Menu
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/admin/Dashboard" data-toggle="collapse"
-                                    aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i
+                                <a class="nav-link active" href="/admin/Dashboard" ><i
                                         class="fa fa-fw fa-user-circle"></i>Dashboard <span
                                         class="badge badge-success">6</span></a>
 

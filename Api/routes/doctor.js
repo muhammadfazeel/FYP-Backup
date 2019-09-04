@@ -27,8 +27,17 @@ const LabReports = require('../Models/labreport');
 
 
 //To Get Doctor Main Page
-router.get("/Home", checkAuth, (req, res) => {
-  res.render("doctor");
+router.get("/Home", checkAuth,async (req, res) => {
+  let Data 
+  Data =await AppointmentData.find({doctorid:req.userData.uid});
+  let Pending = await AppointmentData.find({doctorid:req.userData.uid,status:"pending"})
+  let DrApp = await AppointmentData.find({doctorid:req.userData.uid});
+
+  res.render("doctor",{
+    posts:Data,
+    post:Pending,
+    pst:DrApp
+  });
 });
 //To Get Appointments page
 router.get("/Appointment", checkAuth, async (req, res) => {

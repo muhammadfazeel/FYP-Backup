@@ -8,10 +8,37 @@ const adminData = require('../Models/create-hospital');
 const bedData = require('../Models/beds');
 const userData = require('../Models/user');
 const LabData = require('../Models/lab');
+const Doc = require('../Models/doctor');
+const Pat = require('../Models/patient');
+const Rece = require('../Models/Recep');
+const Lab = require('../Models/lab');
+const App = require('../Models/appointments');
+const ward = require('../Models/wards');
+
 
 //Routes For To Get Admin Page
-router.get('/Home',auth,(req,res)=>{
-    res.render('admin');
+router.get('/Home',auth,async(req,res)=>{
+let DocData = await Doc.find({hid:req.userData.hospitalid});
+let DData = await Doc.find({hid:req.userData.hospitalid});
+let PatData = await Pat.find({hid:req.userData.hospitalid});
+let ReceData = await Rece.find({hid:req.userData.hospitalid});
+let LabData = await Lab.find({hid:req.userData.hospitalid});
+let AppData = await App.find({hid:req.userData.hospitalid});
+let AppDone = await App.find({hid:req.userData.hospitalid,status:"done"});
+let AppPending = await App.find({hid:req.userData.hospitalid,status:"pending"});
+let WardData = await ward.find({hid:req.userData.hospitalid});
+
+    res.render('admin',{
+      DocData:DocData,
+      PatData:PatData,
+      ReceData:ReceData,
+      LabData:LabData,
+      AppData:AppData,
+      AppDone:AppDone,
+      AppPending:AppPending,
+      WardData:WardData,
+      DData:DData
+    });
 })
 //To Get Dashboard Data
 router.get('/Dashboard',auth,(req,res)=>{

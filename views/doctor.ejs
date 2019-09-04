@@ -9,13 +9,119 @@
     <title>Admin</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="/Resources/style.css"/>
     <link rel="stylesheet" href="/css/style.css">
 
+
+    <style>
+            body {
+                   background-image: linear-gradient(rgba(29, 212, 212, 0.664), rgba(0, 0, 0, 0.7)), url("css/img/1.jpg"), url(img/1.jpg);
+       
+                   background-size: cover;
+               }
+       
+               body {
+                   background: rgb(239, 243, 243);
+               }
+       
+               hr {
+                   background: rgb(228, 65, 36)
+               }
+           </style>
 </head>
 
 <body>
     <% include partials/doctornav %>
-</body>
- 
+    
+    <div class="dashboard-wrapper">
+            <div class="container-fluid  dashboard-content">
+              <!-- ============================================================== -->
+              <!-- pageheader -->
+              <!-- ============================================================== -->
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div class="page-header">
+                    <h2 class="pageheader-title">Welcome!</h2>
+                    <p class="pageheader-text">
+                      Proin placerat ante duiullam scelerisque a velit ac porta, fusce
+                      sit amet vestibulum mi. Morbi lobortis pulvinar quam.
+                    </p>
+                    <div class="page-breadcrumb">
+                      <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb"></ol>
+                      </nav>
+                    </div>
+                    <div class="page-breadcrumb">
+                      <nav aria-label="breadcrumb"></nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+    <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                    <div class="dash-widget">
+                        <span class="dash-widget-bg1"><i class="fa fa-user-o"></i></span>
+                        <div class="dash-widget-info text-right">
+                            <h3><%= posts.length %></h3>
+                            <span class="widget-title2">Total Patients Appointments<i class="fa fa-check" aria-hidden="true"></i></span>
+                        </div>
+                     </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                  <div class="dash-widget">
+                      <span class="dash-widget-bg1"><i class="fa fa-user-o"></i></span>
+                      <div class="dash-widget-info text-right">
+                          <h3><%= post.length %></h3>
+                          <span class="widget-title2">Pending Appointments<i class="fa fa-check" aria-hidden="true"></i></span>
+                      </div>
+                  </div>
+              </div>
+         
+    </div>
+    <div class="row">
+
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title d-inline-block" style="font-weight: bold;">Appointments</h4> 
+                      </div>
+                      <div class="card-body p-0">
+                        
+                          <div class="card-box">
+                              <div class="card-block">
+                                 
+                  <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                      <thead>
+                        <tr>
+                          <th>Patient Email</th>
+                          <th>Doctor</th>
+                          <th>status</th>
+                        </tr>
+                      </thead>
+                      <% for(let i = 0; i < pst.length; i++) { %>
+                      <tbody>
+                        <tr>
+                          <td><%= pst[i].patient %></td>
+                          <td><%= pst[i].dr %></td>
+                          <td><%= pst[i].status %></td>
+                        </tr>
+                        </tbody>
+                        <% } %>
+                    </table>
+                  </div>
+                              </div>
+                          </div>
+      
+      
+      
+                      </div>
+                    </div>
+                  </div>
+
+    </div>
+            </div>
+            </div>
 </html>

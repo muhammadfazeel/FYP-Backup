@@ -14,8 +14,14 @@ const bcrpt= require('bcrypt');
 
 const checkauth=require('../middleware/check-auth');
 
-router.get('/Home',checkauth,(req,res)=>{
-  res.render('lab')
+router.get('/Home',checkauth,async (req,res)=>{
+  let Data = await TestData.find({hid:req.userData.hospitalid,status:"done"})
+  let Dat = await TestData.find({hid:req.userData.hospitalid,status:"pending"})
+  
+  res.render('lab',{
+    posts:Data,
+    pending:Dat
+  })
 })
 
 //To Delete Lab By Admin

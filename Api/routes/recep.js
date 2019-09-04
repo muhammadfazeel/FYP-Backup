@@ -13,8 +13,12 @@ const payment = require('../Models/payment');
 const bcrpt = require('bcrypt');
 const RecepModel = require('../Models/Recep');
 //To Get Receptionist Page
-router.get('/Home',checkAuth,(req,res)=>{
-    res.render('RecepHome');
+router.get('/Home',checkAuth,async (req,res)=>{
+  let Data
+  Data = await AppointmentData.find({hid:req.userData.hospitalid})
+    res.render('RecepHome',{
+      posts:Data
+    });
 });
 //To Display Appointments Of Specific Hospital And Render page
 router.get('/AllAppointments',checkAuth,async(req,res)=>{

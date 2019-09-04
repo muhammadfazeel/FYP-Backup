@@ -10,6 +10,20 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+    .logo {
+        height: 50px;
+        width: 100px;
+        float: left;
+        margin-left: 3pc;
+        margin-top: 10px;
+      }
+      .navbar{
+        background-color: #008080 !important;
+    }
+      
+    </style>
 </head>
 
 <body>
@@ -22,8 +36,8 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-info fixed-top">
-                <a class="navbar-brand" href="/index">Multi Hospital System</a>
-
+            
+                    <img src="/Resources/img/hh2.png" alt="logos" class="logo">
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -31,12 +45,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto navbar-right-top">
-                        <li class="nav-item active ">
-                            <a class="nav-link" href="#">
-                                <h3>Home </h3> <span class="sr-only"></span>
-                            </a>
-                        </li>
+                    <ul class="navbar-nav ml-auto ">
+                        
 
                     </ul>
 
@@ -45,7 +55,7 @@
                     <li class="nav-item dropdown nav-user">
 
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"><img src="/dummy.png" alt=""
+                            aria-haspopup="true" aria-expanded="false"><img src="/Resources/img/pp.png" alt=""
                                 class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                             aria-labelledby="navbarDropdownMenuLink2">
@@ -117,20 +127,10 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-                                    data-target="#submenu-6" aria-controls="submenu-6"><i class="material-icons">
-                                        monetization_on</i>Prescription</a>
-                                <div id="submenu-6" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Payment</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/recep/payment">Prescription</a>
-                                        </li>
-
-                                    </ul>
-                                </div>
+                                <a class="nav-link" href="/recep/payment"  aria-expanded="false"
+                                  aria-controls="submenu-6"><i class="material-icons">
+                                        monetization_on</i>Payment</a>
+                        
                             </li>
                             <!-- <li class="nav-divider">
                                 Features

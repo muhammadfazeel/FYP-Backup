@@ -1,142 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>Admin</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
-    <link rel="stylesheet" href="/css/style.css" />
-    <style>
-      body {
-        background-image: linear-gradient(
-            rgba(29, 212, 212, 0.664),
-            rgba(0, 0, 0, 0.7)
-          ),
-          url("/css/img/1.jpg"), url(img/1.jpg);
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Admin</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
-        background-size: cover;
-      }
-      body {
-        background: rgb(247, 247, 247);
-      }
-      hr {
-        background: rgb(228, 65, 36);
-      }
-      .contact-form {
-        background: rgb(242, 244, 245);
-        color: black;
-        margin-top: 20px;
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/Resources/style.css" />
+  <style>
+    body {
+      background-image: linear-gradient(rgba(29, 212, 212, 0.664),
+          rgba(0, 0, 0, 0.7)),
+        url("/css/img/1.jpg"), url(img/1.jpg);
 
-        padding: 100px;
+      background-size: cover;
+    }
 
-        box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
-      }
+    body {
+      background: rgb(247, 247, 247);
+    }
 
-      * {
-        box-sizing: border-box;
-      }
+    hr {
+      background: rgb(228, 65, 36);
+    }
 
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-      }
+    .contact-form {
+      background: rgb(242, 244, 245);
+      color: black;
+      margin-top: 20px;
 
-      .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        padding: 16px;
-        text-align: center;
-        background-color: white;
-      }
-    </style>
-  </head>
+      padding: 100px;
 
-  <body>
-    <% include partials/adminnav %>
+      box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
+    }
 
-    <!-- ============================================================== -->
-    <!-- main wrapper -->
-    <!-- ============================================================== -->
+    * {
+      box-sizing: border-box;
+    }
 
-    <!-- ============================================================== -->
-    <!-- navbar -->
-    <!-- ============================================================== -->
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-    <div class="dashboard-wrapper">
-      <div class="container-fluid  dashboard-content">
-        <!-- ============================================================== -->
-        <!-- pageheader -->
-        <!-- ============================================================== -->
-        <div class="row">
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="page-header">
-              <h2 class="pageheader-title">Welcome!</h2>
-              <p class="pageheader-text">
-                Proin placerat ante duiullam scelerisque a velit ac porta, fusce
-                sit amet vestibulum mi. Morbi lobortis pulvinar quam.
-              </p>
-              <div class="page-breadcrumb">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb"></ol>
-                </nav>
-              </div>
-              <div class="page-breadcrumb">
-                <nav aria-label="breadcrumb"></nav>
-              </div>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      padding: 16px;
+      text-align: center;
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <% include partials/adminnav %>
+
+  <!-- ============================================================== -->
+  <!-- main wrapper -->
+  <!-- ============================================================== -->
+
+  <!-- ============================================================== -->
+  <!-- navbar -->
+  <!-- ============================================================== -->
+
+  <div class="dashboard-wrapper">
+    <div class="container-fluid  dashboard-content">
+      <!-- ============================================================== -->
+      <!-- pageheader -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="page-header">
+            <h2 class="pageheader-title">Welcome!</h2>
+            <p class="pageheader-text">
+              Proin placerat ante duiullam scelerisque a velit ac porta, fusce
+              sit amet vestibulum mi. Morbi lobortis pulvinar quam.
+            </p>
+            <div class="page-breadcrumb">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb"></ol>
+              </nav>
             </div>
-          </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- end   pageheader -->
-        <!-- ============================================================== -->
-
-        <!-- ============================================================== -->
-        <!-- table -->
-        <!-- ============================================================== -->
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="card" style="width: 14rem;">
-              <img class="card-img-top" src="/Dummy.png" alt="Card image cap" />
-              <div class="card-body">
-                <a class="btn btn-info btn-rounded btn-sm my-0">Patient</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card" style="width: 14rem;">
-              <img class="card-img-top" src="/Dummy.png" alt="Card image cap" />
-              <div class="card-body">
-                <a class="btn btn-info btn-rounded btn-sm my-0">Doctors</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card" style="width: 14rem;">
-              <img class="card-img-top" src="/Dummy.png" alt="Card image cap" />
-              <div class="card-body">
-                <a class="btn btn-info btn-rounded btn-sm my-0">Finance</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card" style="width: 14rem;">
-              <img class="card-img-top" src="/Dummy.png" alt="Card image cap" />
-              <div class="card-body">
-                <a class="btn btn-info btn-rounded btn-sm my-0">Profile</a>
-              </div>
+            <div class="page-breadcrumb">
+              <nav aria-label="breadcrumb"></nav>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <!-- ============================================================== -->
+      <!-- end   pageheader -->
+      <!-- ============================================================== -->
 
-    <script src="vendors/js/jquery-3.3.1.min.js"></script>
-    <script src="vendors/css/bootstrap.bundle.js"></script>
-    <script src="vendors/js/jquery.slimscroll.js"></script>
-    <script src="vendors/js/main-js.js"></script>
-  </body>
+
+
+
+
+      <!-- ============================================================== -->
+      <!-- table -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+          <div class="dash-widget">
+            <span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
+            <div class="dash-widget-info text-right">
+              <h3><%=DData.length %></h3>
+              <span class="widget-title1">Doctors <i class="fa fa-check" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+          <div class="dash-widget">
+            <span class="dash-widget-bg2"><i class="fa fa-wheelchair"></i></span>
+            <div class="dash-widget-info text-right">
+              <h3><%=PatData.length %></h3>
+              <span class="widget-title2">Patients <i class="fa fa-check" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+          <div class="dash-widget">
+            <span class="dash-widget-bg3"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+            <div class="dash-widget-info text-right">
+              <h3><%=ReceData.length %></h3>
+              <span class="widget-title3">Receptionist <i class="fa fa-check" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+          <div class="dash-widget">
+            <span class="dash-widget-bg4"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+            <div class="dash-widget-info text-right">
+              <h3><%=LabData.length %></h3>
+              <span class="widget-title4">Lab Attendant <i class="fa fa-check" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+          <div class="dash-widget">
+            <span class="dash-widget-bg1"><i class="fa fa-calendar-o" aria-hidden="true"></i></span>
+            <div class="dash-widget-info text-right">
+              <h3><%=AppData.length %></h3>
+              <span class="widget-title1">Appointment<i class="fa fa-check" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+          <div class="dash-widget">
+            <span class="dash-widget-bg2"><i class="fa fa-check"></i></span>
+            <div class="dash-widget-info text-right">
+              <h3><%=AppDone.length %></h3>
+              <span class="widget-title2">Checked<i class="fa fa-check" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+          <div class="dash-widget">
+            <span class="dash-widget-bg3"><i class="fa fa-hourglass-start " aria-hidden="true"></i></span>
+            <div class="dash-widget-info text-right">
+              <h3><%=AppPending.length %></h3>
+              <span class="widget-title3">Pending<i class="fa fa-times" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+          <div class="dash-widget">
+            <span class="dash-widget-bg4"><i class="fa fa-bed" aria-hidden="true"></i></span>
+            <div class="dash-widget-info text-right">
+              <h3><%=WardData.length %></h3>
+              <span class="widget-title4">Wards<i class="fa fa-check" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4 col-lg-6 col-xl-6">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title d-inline-block" style="font-weight: bold;">Patients</h4>
+            </div>
+            <div class="card-body p-0">
+
+              <div class="card-box">
+                <div class="card-block">
+
+                  <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Doctor</th>
+                          <th>Email</th>
+                        </tr>
+                      </thead>
+                      <% for(let i = 0; i < DocData.length; i++) { %>
+                      <tbody>
+                        <tr>
+                          <td><%=DocData[i].name %></td>
+                          <td><%=DocData[i].department %></td>
+                          <td><%=DocData[i].email %></td>
+                        </tr>
+                      </tbody>
+                      <% } %>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-12 col-md-4 col-lg-6 col-xl-6">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title d-inline-block" style="font-weight: bold;">Patients</h4>
+            </div>
+            <div class="card-body p-0">
+
+              <div class="card-box">
+                <div class="card-block">
+
+                  <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Phone</th>
+                          <th>Email</th>
+                        </tr>
+                      </thead>
+                      <% for(let i = 0; i < PatData.length; i++) { %>
+                      <tbody>
+                        <tr>
+                          <td><%=PatData[i].name %></td>
+                          <td><%=PatData[i].phone %></td>
+                          <td><%=PatData[i].email %></td>
+                        </tr>
+                      </tbody>
+                      <% } %>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+    </div>
+    <!-- Footer -->
+
+  </div>
+
+  <script src="vendors/js/jquery-3.3.1.min.js"></script>
+  <script src="vendors/css/bootstrap.bundle.js"></script>
+  <script src="vendors/js/jquery.slimscroll.js"></script>
+  <script src="vendors/js/main-js.js"></script>
+</body>
+
 </html>

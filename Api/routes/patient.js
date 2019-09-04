@@ -8,11 +8,16 @@ const Hospital = require('../Models/create-hospital');
 const User = require('../Models/user');
 const bcrpt = require('bcrypt');
 const patModel = require('../Models/patient');
+const AppointmentData = require('../Models/appointments');
 
 
 //To Get Home page
-router.get('/Home',checkAuth,(req,res)=>{
-    res.render('patientHome')
+router.get('/Home',checkAuth,async (req,res)=>{
+let Data 
+Data = await AppointmentData.find({patientid:req.userData.uid})
+    res.render('patientHome',{
+      posts:Data
+    })
 })
 //To get Patient History
 router.get('/History',checkAuth,async (req,res)=>{

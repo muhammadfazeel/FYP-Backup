@@ -1,142 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>Admin</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
-    <link rel="stylesheet" href="/css/style.css" />
-    <style>
-      body {
-        background-image: linear-gradient(
-            rgba(29, 212, 212, 0.664),
-            rgba(0, 0, 0, 0.7)
-          ),
-          url("/css/img/1.jpg"), url(img/1.jpg);
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Admin</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/Resources/style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 
-        background-size: cover;
-      }
-      body {
-        background: rgb(247, 247, 247);
-      }
-      hr {
-        background: rgb(228, 65, 36);
-      }
-      .contact-form {
-        background: rgb(242, 244, 245);
-        color: black;
-        margin-top: 20px;
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 
-        padding: 100px;
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  >
+  <style>
+    body {
+      background-image: linear-gradient(rgba(29, 212, 212, 0.664),
+          rgba(0, 0, 0, 0.7)),
+        url("/css/img/1.jpg"), url(img/1.jpg);
 
-        box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
-      }
+      background-size: cover;
+    }
 
-      * {
-        box-sizing: border-box;
-      }
+    body {
+      background: rgb(247, 247, 247);
+    }
 
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-      }
+    hr {
+      background: rgb(228, 65, 36);
+    }
 
-      .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        padding: 16px;
-        text-align: center;
-        background-color: white;
-      }
-    </style>
-  </head>
+    .contact-form {
+      background: rgb(242, 244, 245);
+      color: black;
+      margin-top: 20px;
 
-  <body>
-    <% include partials/receptionnav %>
+      padding: 100px;
 
-    <!-- ============================================================== -->
-    <!-- main wrapper -->
-    <!-- ============================================================== -->
+      box-shadow: 0px 0px 10px 3px rgba(66, 64, 64, 0.267);
+    }
 
-    <!-- ============================================================== -->
-    <!-- navbar -->
-    <!-- ============================================================== -->
+    * {
+      box-sizing: border-box;
+    }
 
-    <div class="dashboard-wrapper">
-      <div class="container-fluid  dashboard-content">
-        <!-- ============================================================== -->
-        <!-- pageheader -->
-        <!-- ============================================================== -->
-        <div class="row">
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="page-header">
-              <h2 class="pageheader-title">Welcome!</h2>
-              <p class="pageheader-text">
-                Proin placerat ante duiullam scelerisque a velit ac porta, fusce
-                sit amet vestibulum mi. Morbi lobortis pulvinar quam.
-              </p>
-              <div class="page-breadcrumb">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb"></ol>
-                </nav>
-              </div>
-              <div class="page-breadcrumb">
-                <nav aria-label="breadcrumb"></nav>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- end   pageheader -->
-        <!-- ============================================================== -->
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-        <!-- ============================================================== -->
-        <!-- table -->
-        <!-- ============================================================== -->
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="card" style="width: 14rem;">
-              <img class="card-img-top" src="/Dummy.png" alt="Card image cap" />
-              <div class="card-body">
-                <a class="btn btn-info btn-rounded btn-sm my-0">Patient</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card" style="width: 14rem;">
-              <img class="card-img-top" src="/Dummy.png" alt="Card image cap" />
-              <div class="card-body">
-                <a class="btn btn-info btn-rounded btn-sm my-0">Doctors</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card" style="width: 14rem;">
-              <img class="card-img-top" src="/Dummy.png" alt="Card image cap" />
-              <div class="card-body">
-                <a class="btn btn-info btn-rounded btn-sm my-0">Finance</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card" style="width: 14rem;">
-              <img class="card-img-top" src="/Dummy.png" alt="Card image cap" />
-              <div class="card-body">
-                <a class="btn btn-info btn-rounded btn-sm my-0">Profile</a>
-              </div>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      padding: 16px;
+      text-align: center;
+      background-color: white;
+    }
+  </style>
+
+
+
+  <script>
+    $(document).ready(function () {
+      $('#example').DataTable();
+    });
+  </script>
+</head>
+
+<body>
+  <% include partials/receptionnav %>
+  <div class="dashboard-wrapper">
+    <div class="container-fluid  dashboard-content">
+      <!-- ============================================================== -->
+      <!-- pageheader -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="page-header">
+            <h2 class="pageheader-title">Welcome!</h2>
+            <p class="pageheader-text">
+              Proin placerat ante duiullam scelerisque a velit ac porta, fusce
+              sit amet vestibulum mi. Morbi lobortis pulvinar quam.
+            </p>
+            <hr>
+            <div class="page-breadcrumb">
+              <nav aria-label="breadcrumb"></nav>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <!-- ============================================================== -->
+      <!-- end   pageheader -->
+      <!-- ============================================================== -->
 
-    <script src="vendors/js/jquery-3.3.1.min.js"></script>
-    <script src="vendors/css/bootstrap.bundle.js"></script>
-    <script src="vendors/js/jquery.slimscroll.js"></script>
-    <script src="vendors/js/main-js.js"></script>
-  </body>
+
+
+
+
+      <!-- ============================================================== -->
+      <!-- table -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4">
+          <a href="/patient/addPatient">
+            <div class="dash-widget">
+              <span class="dash-widget-bg1"><i class="fa fa-user-o"></i></span>
+              <div class="dash-widget-info text-right">
+
+                <span class="widget-title2">Add Patients <i class="fa fa-check" aria-hidden="true"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4">
+          <a href="/recep/payment">
+            <div class="dash-widget">
+              <span class="dash-widget-bg4"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+              <div class="dash-widget-info text-right">
+
+                <span class="widget-title4">Invoice <i class="fa fa-check" aria-hidden="true"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4">
+          <a href="/recep/Add">
+            <div class="dash-widget">
+              <span class="dash-widget-bg2"><i class="fa fa-user-o"></i></span>
+              <div class="dash-widget-info text-right">
+                <h3></h3>
+                <span class="widget-title2">Add Appointment <i class="fa fa-check" aria-hidden="true"></i></span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+      <div class="page-breadcrumb">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb"></ol>
+        </nav>
+      </div>
+      <h3 style="text-align: center;">Patient</h3>
+
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <table id="example" class=" table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Patient Email</th>
+                <th>Doctor</th>
+                <th>Status</th>
+
+
+
+
+              </tr>
+            </thead>
+
+
+            <div class="row">
+
+
+              <div class="table-responsive">
+
+                <% for(let i = 0; i < posts.length; i++) { %>
+                <tbody>
+                  <tr>
+                    <td><%= posts[i].date %></td>
+                    <td><%= posts[i].patient %></td>
+                    <td><%= posts[i].dr %></td>
+                    <td><%= posts[i].status %></td>
+                  </tr>
+                </tbody>
+
+                <% } %>
+
+              </div>
+            </div>
+        </div>
+
+
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+  <script src="vendors/js/jquery-3.3.1.min.js"></script>
+  <script src="vendors/css/bootstrap.bundle.js"></script>
+  <script src="vendors/js/jquery.slimscroll.js"></script>
+  <script src="vendors/js/main-js.js"></script>
+</body>
+
 </html>
