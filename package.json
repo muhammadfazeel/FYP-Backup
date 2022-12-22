@@ -24,7 +24,7 @@
     "http-msgs": "^1.0.9",
     "joi": "^14.3.1",
     "jquery": "^3.4.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.14",
     "method-override": "^3.0.0",
     "mongo": "^0.1.0",
